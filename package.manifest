@@ -1,0 +1,13 @@
+﻿{
+    "dashboards":  [
+        {
+            "alias": "uMediaDash",
+            "view":  "/App_Plugins/UMedia/UMedia.html",
+            "sections":  [ "media" ],
+            "weight": 10,
+            "access": [
+                { "grant": "admin" }
+            ]
+        }
+    ]
+}
