@@ -11,10 +11,10 @@
     }
   ],
   "javascript": [
+    "/App_Plugins/UMedia/script.js",
     "/App_Plugins/UMedia/RangeSlider/SliderScript.js"
   ],
   "css": [
     "/App_Plugins/UMedia/RangeSlider/SliderStyle.css"
-
   ]
 }
