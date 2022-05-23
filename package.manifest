@@ -1,13 +1,20 @@
 ﻿{
-    "dashboards":  [
-        {
-            "alias": "uMediaDash",
-            "view":  "/App_Plugins/UMedia/UMedia.html",
-            "sections":  [ "media" ],
-            "weight": 10,
-            "access": [
-                { "grant": "admin" }
-            ]
-        }
-    ]
+  "dashboards": [
+    {
+      "alias": "uMediaDash",
+      "view": "/App_Plugins/UMedia/UMedia.html",
+      "sections": [ "media" ],
+      "weight": 10,
+      "access": [
+        { "grant": "admin" }
+      ]
+    }
+  ],
+  "javascript": [
+    "/App_Plugins/UMedia/RangeSlider/SliderScript.js"
+  ],
+  "css": [
+    "/App_Plugins/UMedia/RangeSlider/SliderStyle.css"
+
+  ]
 }
