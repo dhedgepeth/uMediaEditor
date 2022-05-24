@@ -60,19 +60,18 @@
 
 
 .valOut {
-    display: block;
+    font-size: larger;
+    display: flex;
     color: #3544B1;
     justify-content: center;
-    font-size: larger;
+    align-items: center;
 }
 
     .valOut label {
-        color: #3544B1;
         font-size: larger;
     }
 
     .valOut span {
-        text-align-last: right;
         opacity: 0.7;
     }
 
