@@ -1,11 +1,8 @@
-﻿const slideValue = document.querySelector("span");
-const inputSlider = document.querySelector("input");
-inputSlider.oninput = (() => {
-    let value = inputSlider.value;
-    slideValue.textContent = value;
-    slideValue.style.left = (value / 2) + "%";
-    slideValue.classList.add("show");
-});
-inputSlider.onblur = (() => {
-    slideValue.classList.remove("show");
-});
+﻿var slider = document.getElementById("SliderRange");
+var output = document.getElementById("ValueID");
+
+output.innerHTML = slider.value;
+
+slider.oninput = function () {
+    output.innerHTML =  this.value;
+}

@@ -1,64 +1,82 @@
 ﻿* {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     box-sizing: border-box;
     font-family: Lato,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
-.welcome-dashboard {
-    display: grid;
-    height: 100%;
-    text-align: left;
-    place-items: left;
-    background: #3544B1;
-}
-.range {
-    height: 80px;
+
+
+
+
+.SliderContainer {
+    padding-top: 2rem;
+    height: 90px;
     width: 380px;
     background: #fff;
     border-radius: 10px;
     padding: 0 65px 0 45px;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
-}
-.sliderValue {
-    position: relative;
-    width: 100%;
+    opacity: 0.9;
+    display: grid;
 }
 
-.sliderValue span {
-    position: absolute;
-    height: 45px;
-    width: 45px;
-    transform: translateX(-70%) scale(0);
-    font-weight: 500;
-    top: -40px;
-    line-height: 55px;
-    z-index: 2;
-    color: #fff;
-    transform-origin: bottom;
-    transition: transform 0.3s ease-in-out;
-}
+    .SliderContainer:hover {
+        opacity: 1;
+    }
 
-.sliderValue span.show {
-    transform: translateX(-70%) scale(1);
-}
-
-    .sliderValue span:after {
-        position: absolute;
-        content: '';
-        height: 100%;
+    .SliderContainer input {
+        -webkit-appearance: none;
         width: 100%;
-        background: #3544B1;
-        border: 3px solid #fff;
-        z-index: -1;
-        left: 50%;
-        transform: translateX(-50%) rotate(45deg);
-        border-bottom-left-radius: 50%;
-        box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
+        height: 3px;
+        background: #ddd;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        z-index: 2222;
+    }
+
+        .SliderContainer input::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            background: #3544B1;
+            border: 1px solid #3544B1;
+            cursor: pointer;
+        }
+
+        .SliderContainer input::-moz-range-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            background: #3544B1;
+            border: 1px solid #664AFF;
+            cursor: pointer;
+        }
+
+
+
+.valOut {
+    display: block;
+    color: #3544B1;
+    justify-content: center;
+    font-size: larger;
 }
 
-.field {
+    .valOut label {
+        color: #3544B1;
+        font-size: larger;
+    }
+
+    .valOut span {
+        text-align-last: right;
+        opacity: 0.7;
+    }
+
+.slider {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,55 +84,17 @@
     position: relative;
 }
 
-    .field .value {
+    .slider .value {
         position: absolute;
         font-size: 18px;
         color: #3544B1;
         font-weight: 600;
     }
 
-.field .value.left {
-    left: -22px;
-}
+        .slider .value.left {
+            left: -22px;
+        }
 
-.field .value.right {
-    right: -43px;
-}
-
-.range input {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 3px;
-    background: #ddd;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    z-index: 2222;
-}
-
-    .range input::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 20px;
-        height: 20px;
-        background: red;
-        border-radius: 50%;
-        background: #3544B1;
-        border: 1px solid #3544B1;
-        cursor: pointer;
-    }
-
-    .range input::-moz-range-thumb {
-        -webkit-appearance: none;
-        width: 20px;
-        height: 20px;
-        background: red;
-        border-radius: 50%;
-        background: #3544B1;
-        border: 1px solid #664AFF;
-        cursor: pointer;
-    }
-
-    .range input::after {
-        background: #3544B1;
-        /*this progress background is only shown on Firefox*/
-    }
+        .slider .value.right {
+            right: -43px;
+        }
