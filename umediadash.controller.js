@@ -3,7 +3,6 @@
 
     $scope.pickImg = function () {         
         mediaResource.getById($scope.input).then(function (media) {
-            y = media.mediaLink;
             $scope.img = '<img src="' + media.mediaLink + '" />'
         });
     }
