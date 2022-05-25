@@ -1,21 +1,46 @@
+<script src="/App_Plugins/UMedia/RangeSlider/SliderScript.js"></script>
+<link rel="stylesheet" href="/App_Plugins/UMedia/RangeSlider/SliderStyle.css" />
+
 <div class="uMediaDash">
-  <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
     <h1>UMedia Editor</h1>
     <p>The UMedia Editor aims to add basic image processing straight to the Umbraco backoffice!!</p>
 </div>
 
 <div class="SliderContainer">
-    <link rel="stylesheet" href="/App_Plugins/UMedia/RangeSlider/SliderStyle.css">
-    
-    <div class="valOut">
-        <label>Hue|</label><span id="ValueID"></span>
-    </div>
-
     <div class="slider">
-        <div class="value left">0</div>
+        <div class="value left">Hue</div>
         <input type="range" min="0" max="200" value="100" id="SliderRange">
-        <div class="value right">200</div>
+        <div class="value right"><span id="ValueID"></span></div>
     </div>
 </div>
-<script src="/App_Plugins/UMedia/RangeSlider/SliderScript.js"></script> 
+<div class="SliderContainer">
+    <div class="slider">
+        <div class="value left">Tint</div>
+        <input type="range" min="0" max="200" value="100" id="SliderRange">
+        <div class="value right"><span id="ValueID"></span></div>
+    </div>
+</div>
+<div class="SliderContainer">
+    <div class="slider">
+        <div class="value left">Temp</div>
+        <input type="range" min="0" max="200" value="100" id="SliderRange">
+        <div class="value right"><span id="ValueID"></span></div>
+    </div>
+</div>
+<div class="SliderContainer">
+    <div class="slider">
+        <div class="value left">Sat</div>
+        <input type="range" min="0" max="200" value="100" id="SliderRange">
+        <div class="value right"><span id="ValueID"></span></div>
+    </div>
+</div>
+<div class="SliderContainer">
+    <div class="slider">
+        <div class="value left">Vib</div>
+        <input type="range" min="0" max="200" value="100" id="SliderRange">
+        <div class="value right"><span id="ValueID"></span></div>
+    </div>
+</div>
+
 

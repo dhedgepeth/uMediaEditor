@@ -5,10 +5,8 @@
     font-family: Lato,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-
-
-
 .SliderContainer {
+    margin: 5px;
     padding-top: 2rem;
     height: 90px;
     width: 380px;
@@ -26,7 +24,7 @@
 
     .SliderContainer input {
         -webkit-appearance: none;
-        width: 100%;
+        width: 80%;
         height: 3px;
         background: #ddd;
         border-radius: 5px;
@@ -58,23 +56,6 @@
         }
 
 
-
-.valOut {
-    font-size: larger;
-    display: flex;
-    color: #3544B1;
-    justify-content: center;
-    align-items: center;
-}
-
-    .valOut label {
-        font-size: larger;
-    }
-
-    .valOut span {
-        opacity: 0.7;
-    }
-
 .slider {
     display: flex;
     align-items: center;
@@ -95,5 +76,5 @@
         }
 
         .slider .value.right {
-            right: -43px;
+            right: -23px;
         }
