@@ -1,5 +1,6 @@
 ﻿angular.module("umbraco").controller("UMediaDashController", function ($scope, mediaResource) {
     var vm = this;
+    $scope.hideSlider = true;
 
     $scope.pickImg = function () {
 
@@ -12,4 +13,9 @@
             });
         }
     }
+
+    $scope.showColorSliders = function () {
+        $scope.hideSlider = !$scope.hideSlider;
+    }
+
 });
