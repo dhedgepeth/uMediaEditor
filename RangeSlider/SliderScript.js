@@ -1,4 +1,9 @@
-﻿var hueSlider = document.getElementById("hueRange");
+﻿/*Script running the sliders and reporting back to the HTML,
+ * divied in sections by type of adjustment 
+ */
+
+//-------------------------------Color Adust Script----------------------------//
+var hueSlider = document.getElementById("hueRange");
 var hueOutput = document.getElementById("hueValue");
 
 hueOutput.innerHTML = hueSlider.value;
