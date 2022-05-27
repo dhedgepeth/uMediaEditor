@@ -48,3 +48,22 @@ vibSlider.oninput = function () {
     vibOutput.innerHTML = this.value;
 }
 
+//------------------------------------Detail Adjust Script-------------------------------//
+var sharpSlider = document.getElementById("sharpRange");
+var sharpOutput = document.getElementById("sharpValue");
+
+sharpOutput.innerHTML = sharpSlider.value;
+
+sharpSlider.oninput = function () {
+    sharpOutput.innerHTML = this.value;
+}
+
+var blurSlider = document.getElementById("blurRange");
+var blurOutput = document.getElementById("blurValue");
+
+blurOutput.innerHTML = blurSlider.value;
+
+blurSlider.oninput = function () {
+    blurOutput.innerHTML = this.value;
+}
+
