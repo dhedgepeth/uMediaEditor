@@ -5,13 +5,12 @@
 <div class="uMediaDash" ng-controller="UMediaDashController as vm">
     <h1>UMedia Editor</h1>
     <p>The UMedia Editor aims to add basic image processing straight to the Umbraco backoffice!!</p>
-    <p><input ng-model="input" /></p>
-    <!--<umb-button id="submitButton" ng-click="pickImg()" label="Submit" type="button" button-style="success"></umb-button>-->
+    <p><input ng-model="mediaId" /></p>
 
-    <button id="but" ng-click="pickImg()">Click me</button>
+    <button id="but" ng-click="getMediaLink()" class="btn btn-success">Find Image</button>
 
-    <div ng-bind-html="img">
-
+    <div>
+        <img id="image"/>
     </div>
 
     <umb-button ng-click="showColorSliders()" label="Show Color Sliders" type="button" button-style="success"></umb-button>

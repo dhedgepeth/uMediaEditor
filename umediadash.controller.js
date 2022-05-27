@@ -2,14 +2,12 @@
     var vm = this;
     $scope.hideSlider = true;
 
-    $scope.pickImg = function () {
-
-        if ($scope.input == undefined) {
+    $scope.getMediaLink = function () {
+        if ($scope.mediaId == undefined) {
             alert('Please enter an Image ID')
         } else {
-            mediaResource.getById($scope.input).then(function (media) {
-                console.log(media.mediaLink);
-                $scope.img = '<img id="image" src="' + media.mediaLink + '" />' //create img tag with media source
+            mediaResource.getById($scope.mediaId).then(function (media) {
+                jquery.getLink(media.mediaLink); //function call to global jquery function
             });
         }
     }
@@ -19,7 +17,3 @@
     }
 
 });
-
-var global = {
-    x: 'testingGlobal'
-};
