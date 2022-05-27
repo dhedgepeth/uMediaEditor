@@ -10,7 +10,7 @@
         } else {
             mediaResource.getById($scope.input).then(function (media) {
                 console.log(media.mediaLink);
-                $scope.img = '<img src="' + media.mediaLink + '" />' //create img tag with media source
+                $scope.img = '<img id="image" src="' + media.mediaLink + '" />' //create img tag with media source
             });
         }
     }

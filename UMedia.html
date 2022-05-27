@@ -1,10 +1,12 @@
 <script src="/App_Plugins/UMedia/RangeSlider/SliderScript.js"></script>
+<script src="/App_Plugins/UMedia/script.js"></script>
 <link rel="stylesheet" href="/App_Plugins/UMedia/RangeSlider/SliderStyle.css" />
 <link rel="stylesheet" href="/App_Plugins/UMedia/RangeSlider/SliderMenuStyle.css" />
 
 <div class="uMediaDash" ng-controller="UMediaDashController as vm">
     <h1>UMedia Editor</h1>
     <p>The UMedia Editor aims to add basic image processing straight to the Umbraco backoffice!!</p>
+
     <p><input ng-model="input" /></p>
     <umb-button ng-click="pickImg()" label="Submit" type="button" button-style="success"></umb-button>
     <div ng-bind-html="img">
@@ -75,5 +77,3 @@
 
     </div>
 </div>
-
-
