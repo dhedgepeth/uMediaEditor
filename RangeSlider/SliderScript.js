@@ -67,3 +67,66 @@ blurSlider.oninput = function () {
     blurOutput.innerHTML = this.value;
 }
 
+//-------------------------------------Light Adjust Script------------------------------//
+var brightSlider = document.getElementById("brightRange");
+var brightOutput = document.getElementById("brightValue");
+
+brightOutput.innerHTML = brightSlider.value;
+
+brightSlider.oninput = function () {
+    brightOutput.innerHTML = this.value;
+}
+
+var shadowSlider = document.getElementById("shadowRange");
+var shadowOutput = document.getElementById("shadowValue");
+
+shadowOutput.innerHTML = shadowSlider.value;
+
+shadowSlider.oninput = function () {
+    shadowOutput.innerHTML = this.value;
+}
+
+var contrastSlider = document.getElementById("contrastRange");
+var contrastOutput = document.getElementById("contrastValue");
+
+contrastOutput.innerHTML = contrastSlider.value;
+
+contrastSlider.oninput = function () {
+    contrastOutput.innerHTML = this.value;
+}
+
+var exposureSlider = document.getElementById("exposureRange");
+var exposureOutput = document.getElementById("exposureValue");
+
+exposureOutput.innerHTML = exposureSlider.value;
+
+exposureSlider.oninput = function () {
+    exposureOutput.innerHTML = this.value;
+}
+
+var blackSlider = document.getElementById("blackRange");
+var blackOutput = document.getElementById("blackValue");
+
+blackOutput.innerHTML = blackSlider.value;
+
+blackSlider.oninput = function () {
+    blackOutput.innerHTML = this.value;
+}
+
+var whiteSlider = document.getElementById("whiteRange");
+var whiteOutput = document.getElementById("whiteValue");
+
+whiteOutput.innerHTML = whiteSlider.value;
+
+whiteSlider.oninput = function () {
+    whiteOutput.innerHTML = this.value;
+}
+
+var highlightsSlider = document.getElementById("highlightsRange");
+var highlightsOutput = document.getElementById("highlightsValue");
+
+highlightsOutput.innerHTML = highlightsSlider.value;
+
+highlightsSlider.oninput = function () {
+    highlightsOutput.innerHTML = this.value;
+}
