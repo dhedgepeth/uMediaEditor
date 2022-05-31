@@ -67,6 +67,15 @@ blurSlider.oninput = function () {
     blurOutput.innerHTML = this.value;
 }
 
+var smoothSlider = document.getElementById("smoothRange");
+var smoothOutput = document.getElementById("smoothValue");
+
+smoothOutput.innerHTML = smoothSlider.value;
+
+smoothSlider.oninput = function () {
+    smoothOutput.innerHTML = this.value;
+}
+
 //-------------------------------------Light Adjust Script------------------------------//
 var brightSlider = document.getElementById("brightRange");
 var brightOutput = document.getElementById("brightValue");
