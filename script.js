@@ -9,6 +9,6 @@ var jquery = {
 
 $(document).ready(function () {
     $('#image').click(function () {
-        console.log('image clicked');
+        
     })
 });
