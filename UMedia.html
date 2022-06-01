@@ -1,6 +1,7 @@
 <script src="/App_Plugins/UMedia/RangeSlider/SliderScript.js"></script>
 <script src="/App_Plugins/UMedia/script.js"></script>
 <link rel="stylesheet" href="/App_Plugins/UMedia/DashStyle.css"/>
+<link rel="stylesheet" href="/App_Plugins/UMedia/imageStyling.css" />
 
 <div class="uMediaDash" ng-controller="UMediaDashController as vm">
     <div class="title">
@@ -12,9 +13,14 @@
         <div class="mediaCenter">
             <p><input ng-model="mediaId" /></p>
             <button id="but" ng-click="getMediaLink()" class="btn btn-success">Find Image</button>
-            <div>
-                <img id="image" />
+            <button id="applyBut" class="btn btn-success">Apply</button>
+
+            <img id="sourceImage" />
+
+            <div class="imagePreview">
+                <canvas id="canvas" height="0"></canvas>
             </div>
+
         </div>
 
         <div>

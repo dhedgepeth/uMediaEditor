@@ -1,0 +1,14 @@
+﻿#sourceImage {
+    display: none;
+}
+
+.image-preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#canvas {
+    max-height: 420px;
+    object-fit: contain;
+}

@@ -15,6 +15,7 @@
     "/App_Plugins/UMedia/RangeSlider/SliderScript.js"
   ],
   "css": [
-    "/App_Plugins/UMedia/RangeSlider/SliderStyle.css"
+    "/App_Plugins/UMedia/RangeSlider/SliderStyle.css",
+    "/App_Plugins/UMedia/imageStyling.css"
   ]
 }
