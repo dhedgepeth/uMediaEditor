@@ -3,7 +3,7 @@ var jquery = {
     getLink: function (link) { //function to change image displayed on dashboard given a media link
         console.log('image changed from script');
         $('#sourceImage').attr('src', link);
-        imageName = name + '-edit';
+        imageName = name;
         console.log();
     },
     imageName : ''
