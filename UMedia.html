@@ -2,6 +2,7 @@
 <script src="/App_Plugins/UMedia/script.js"></script>
 <link rel="stylesheet" href="/App_Plugins/UMedia/DashStyle.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link rel="stylesheet" href="/App_Plugins/UMedia/imageStyling.css" />
 
 <div class="uMediaDash" ng-controller="UMediaDashController as vm">
     <div class="title">
@@ -13,9 +14,14 @@
         <div class="mediaCenter">
             <p><input ng-model="mediaId" /></p>
             <button id="but" ng-click="getMediaLink()" class="btn btn-success">Find Image</button>
-            <div>
-                <img id="image" />
+            <a id="save" class="btn btn-success">Download</a>
+
+            <img id="sourceImage" />
+
+            <div class="imagePreview">
+                <canvas id="canvas" height="0"></canvas>
             </div>
+
         </div>
 
         <div>
