@@ -16,6 +16,9 @@ $(document).ready(function () {
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
         canvas.height = document.getElementById('sourceImage').height;
+
+        context.filter = 'grayscale(1)';
+
         apply();
 
         /* Allows for the user to download the image on the canvas locally 
