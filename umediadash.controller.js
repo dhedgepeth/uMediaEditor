@@ -10,12 +10,15 @@
             alert('Please enter an Image ID')
         } else {
             mediaResource.getById($scope.mediaId).then(function (media) {
-                jquery.getLink(media.mediaLink); //function call to global jquery function
+                jquery.getLink(media.mediaLink); //function call to global jquery function to pass link to media library
+                jquery.imageName = media.name + '-edit.png'; //holds the file name for local downloads
             });
         }
     }
 
     //---------------Nix work---------------//
+    
+
     $scope.showColorSliders = function () {
         $scope.hideColorSliders = !$scope.hideColorSliders;
         var img = document.getElementById("colorToggle");   

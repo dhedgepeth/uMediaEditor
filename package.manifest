@@ -12,9 +12,11 @@
   ],
   "javascript": [
     "/App_Plugins/UMedia/umediadash.controller.js",
-    "/App_Plugins/UMedia/RangeSlider/SliderScript.js"
+    "/App_Plugins/UMedia/RangeSlider/SliderScript.js",
+    "/App_Plugins/UMedia/script.js"
   ],
   "css": [
-    "/App_Plugins/UMedia/RangeSlider/SliderStyle.css"
+    "/App_Plugins/UMedia/DashStyle.css",
+    "/App_Plugins/UMedia/imageStyling.css"
   ]
 }
