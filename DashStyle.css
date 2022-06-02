@@ -13,6 +13,8 @@
     padding: 1rem;
 }
 
+
+
 .AdjustMenu {
     margin: 5px;
     height: 33px;
@@ -24,6 +26,7 @@
     opacity: 0.9;
     display: grid;
 }
+
 
     .AdjustMenu:hover {
         opacity: 1;
@@ -126,12 +129,20 @@
 
 .rotated-image {
     transition: all 0.5s ease-in-out;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
 }
 
 .no-rotated-image {
     transition: all 0.5s ease-in-out;
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
+}
+
+.adjustBlock {
+    overflow: hidden;
+}
+
+.animate__animated.animate__fadeInDown {
+    --animate-duration: 0.5s;
 }
