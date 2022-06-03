@@ -3,78 +3,40 @@
  */
 
 //-------------------------------Color Adust Script----------------------------//
-var hueSlider = document.getElementById("hueRange");
-var hueOutput = document.getElementById("hueValue");
+$('#hueRange').on('input', function () {
+    $('#hueValue').text($('#hueRange').val());
+})
 
-hueOutput.innerHTML = hueSlider.value;
+$('#tinitRange').on('input', function () {
+    $('#tinitValue').text($('#tinitRange').val());
+})
 
-hueSlider.oninput = function () {
-    hueOutput.innerHTML =  this.value;
-}
+$('#tempRange').on('input', function () {
+    $('#tempValue').text($('#tempRange').val());
+})
 
-var tintSlider = document.getElementById("tintRange");
-var tintOutput = document.getElementById("tintValue");
+$('#satRange').on('input', function () {
+    $('#satValue').text($('#satRange').val());
+})
 
-tintOutput.innerHTML = tintSlider.value;
+$('#vibRange').on('input', function () {
+    $('#vibValue').text($('#vibRange').val());
+})
 
-tintSlider.oninput = function () {
-    tintOutput.innerHTML = this.value;
-}
-
-var tempSlider = document.getElementById("tempRange");
-var tempOutput = document.getElementById("tempValue");
-
-tempOutput.innerHTML = tempSlider.value;
-
-tempSlider.oninput = function () {
-    tempOutput.innerHTML = this.value;
-}
-
-var satSlider = document.getElementById("satRange");
-var satOutput = document.getElementById("satValue");
-
-satOutput.innerHTML = satSlider.value;
-
-satSlider.oninput = function () {
-    satOutput.innerHTML = this.value;
-}
-
-var vibSlider = document.getElementById("vibRange");
-var vibOutput = document.getElementById("vibValue");
-
-vibOutput.innerHTML = vibSlider.value;
-
-vibSlider.oninput = function () {
-    vibOutput.innerHTML = this.value;
-}
 
 //------------------------------------Detail Adjust Script-------------------------------//
-var sharpSlider = document.getElementById("sharpRange");
-var sharpOutput = document.getElementById("sharpValue");
+$('#sharpRange').on('input', function () {
+    $('#sharpValue').text($('#sharpRange').val());
+})
 
-sharpOutput.innerHTML = sharpSlider.value;
+$('#blurRange').on('input', function () {
+    $('#blurValue').text($('#blurRange').val());
+})
 
-sharpSlider.oninput = function () {
-    sharpOutput.innerHTML = this.value;
-}
+$('#smoothRange').on('input', function () {
+    $('#smoothValue').text($('#smoothRange').val());
+})
 
-var blurSlider = document.getElementById("blurRange");
-var blurOutput = document.getElementById("blurValue");
-
-blurOutput.innerHTML = blurSlider.value;
-
-blurSlider.oninput = function () {
-    blurOutput.innerHTML = this.value;
-}
-
-var smoothSlider = document.getElementById("smoothRange");
-var smoothOutput = document.getElementById("smoothValue");
-
-smoothOutput.innerHTML = smoothSlider.value;
-
-smoothSlider.oninput = function () {
-    smoothOutput.innerHTML = this.value;
-}
 
 //-------------------------------------Light Adjust Script------------------------------//
 $('#brightRange').on('input', function () {
@@ -82,56 +44,26 @@ $('#brightRange').on('input', function () {
 })
 
 
-var shadowSlider = document.getElementById("shadowRange");
-var shadowOutput = document.getElementById("shadowValue");
+$('#shadowRange').on('input', function () {
+    $('#shadowValue').text($('#shadowRange').val());
+})
 
-shadowOutput.innerHTML = shadowSlider.value;
+$('#contrastRange').on('input', function () {
+    $('#contrastValue').text($('#contrastRange').val());
+})
 
-shadowSlider.oninput = function () {
-    shadowOutput.innerHTML = this.value;
-}
+$('#exposureRange').on('input', function () {
+    $('#exposureValue').text($('#exposureRange').val());
+})
 
-var contrastSlider = document.getElementById("contrastRange");
-var contrastOutput = document.getElementById("contrastValue");
+$('#blackRange').on('input', function () {
+    $('#blackValue').text($('#blackRange').val());
+})
 
-contrastOutput.innerHTML = contrastSlider.value;
+$('#whiteRange').on('input', function () {
+    $('#whiteValue').text($('#whiteRange').val());
+})
 
-contrastSlider.oninput = function () {
-    contrastOutput.innerHTML = this.value;
-}
-
-var exposureSlider = document.getElementById("exposureRange");
-var exposureOutput = document.getElementById("exposureValue");
-
-exposureOutput.innerHTML = exposureSlider.value;
-
-exposureSlider.oninput = function () {
-    exposureOutput.innerHTML = this.value;
-}
-
-var blackSlider = document.getElementById("blackRange");
-var blackOutput = document.getElementById("blackValue");
-
-blackOutput.innerHTML = blackSlider.value;
-
-blackSlider.oninput = function () {
-    blackOutput.innerHTML = this.value;
-}
-
-var whiteSlider = document.getElementById("whiteRange");
-var whiteOutput = document.getElementById("whiteValue");
-
-whiteOutput.innerHTML = whiteSlider.value;
-
-whiteSlider.oninput = function () {
-    whiteOutput.innerHTML = this.value;
-}
-
-var highlightsSlider = document.getElementById("highlightsRange");
-var highlightsOutput = document.getElementById("highlightsValue");
-
-highlightsOutput.innerHTML = highlightsSlider.value;
-
-highlightsSlider.oninput = function () {
-    highlightsOutput.innerHTML = this.value;
-}
+$('#highlightsRange').on('input', function () {
+    $('#highlightsValue').text($('#highlightsRange').val());
+})
