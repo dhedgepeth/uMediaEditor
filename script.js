@@ -23,11 +23,10 @@ $(document).ready(function () {
     });
 
     $('#save').click(function () {
-        apply();
-        console.log('clicked save')
-        $('#save').attr('download', jquery.imageName);
+        console.log('clicked save');
         $('#save').attr('href', canvas.toDataURL("image/png"));
-    })
+        $('#save').attr('download', jquery.imageName);
+    });
 
     function apply() {
 
