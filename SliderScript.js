@@ -77,14 +77,10 @@ smoothSlider.oninput = function () {
 }
 
 //-------------------------------------Light Adjust Script------------------------------//
-var brightSlider = document.getElementById("brightRange");
-var brightOutput = document.getElementById("brightValue");
+$('#brightRange').on('input', function () {
+    $('#brightValue').text($('#brightRange').val());
+})
 
-brightOutput.innerHTML = brightSlider.value;
-
-brightSlider.oninput = function () {
-    brightOutput.innerHTML = this.value;
-}
 
 var shadowSlider = document.getElementById("shadowRange");
 var shadowOutput = document.getElementById("shadowValue");
