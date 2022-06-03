@@ -6,10 +6,14 @@ var jquery = {
         imageName = name;
         console.log();
     },
-    imageName : ''
+    imageName: '',
+    testing: test
 };
 
+let test;
+
 $(document).ready(function () {
+    test = testing();
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
@@ -29,5 +33,9 @@ $(document).ready(function () {
 
     function apply() {
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
+    }
+
+    function testing() {
+        console.log('oh wow it works');
     }
 });
