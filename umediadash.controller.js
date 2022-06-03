@@ -18,8 +18,6 @@
     }
 
     //---------------Nix work---------------//
-    
-
     $scope.showColorSliders = function () {
         $scope.hideColorSliders = !$scope.hideColorSliders;
         var img = document.getElementById("colorToggle");   

@@ -4,7 +4,6 @@ var jquery = {
         console.log('image changed from script');
         $('#sourceImage').attr('src', link);
         imageName = name;
-        console.log();
     },
     imageName: ''
 };
@@ -15,23 +14,27 @@ $(document).ready(function () {
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
+
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
         canvas.height = document.getElementById('sourceImage').height;
 
-        context.filter = 'grayscale(1)';
-
         apply();
-
-        /* Allows for the user to download the image on the canvas locally 
-        Eventually will allow the user to save the edited image in Umbraco */
-        $('#save').attr('download', jquery.imageName);
-        $('#save').attr('href', canvas.toDataURL("image/png"));
     });
 
+    $('#save').click(function () {
+        apply();
+        console.log('clicked save')
+        $('#save').attr('download', jquery.imageName);
+        $('#save').attr('href', canvas.toDataURL("image/png"));
+    })
+
     function apply() {
+
+        filters = 'brightness(' + $('#brightRange').val() + '%)' + 'contrast(' + $('#contrastRange').val() + '%)';
+        context.filter = filters;
+
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
-        console.log('called apply');
     }
 
     function getSliders() {
@@ -74,6 +77,7 @@ $(document).ready(function () {
         //-------------------------------------Light Adjust Script------------------------------//
         $('#brightRange').on('input', function () {
             $('#brightValue').text($('#brightRange').val());
+            apply();
         })
 
 
@@ -83,6 +87,7 @@ $(document).ready(function () {
 
         $('#contrastRange').on('input', function () {
             $('#contrastValue').text($('#contrastRange').val());
+            apply();
         })
 
         $('#exposureRange').on('input', function () {
