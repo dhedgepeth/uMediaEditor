@@ -1,19 +1,18 @@
 ﻿/* Global variable used in angular controller */
 var jquery = {
-    getLink: function (link) { //function to change image displayed on dashboard given a media link
+    getLink: function (link, name) { //function to change image displayed on dashboard given a media link
         $('#sourceImage').attr('src', link);
-        imageName = name;
-    },
-    imageName: ''
+        $('#save').attr('download', name); //sets the download 
+    }
 };
 
 $(document).ready(function () {
-    getSliders(); //sets jquery listeners on all sliders
+    getSliders();
 
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
-    $('#save').attr('download', jquery.imageName);
+    $('#save').attr('download', jquery.imageName); //sets the download 
 
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
@@ -22,7 +21,8 @@ $(document).ready(function () {
         apply();
     });
 
-    function apply() { //this function applies all filters using the values from sliders and redraws the image on the canvas
+    //apply function applies all filters using the values from sliders and redraws the image on the canvas
+    function apply() { 
 
         filters = 'brightness(' + $('#brightRange').val() + '%)' +
             'contrast(' + $('#contrastRange').val() + '%)' +
@@ -35,15 +35,16 @@ $(document).ready(function () {
         $('#save').attr('href', canvas.toDataURL("image/png"));
     }
 
-    function getSliders() {
+    //getSliders sets jquery listeners on all sliders and updates the displayed values
+    function getSliders() { 
         //-------------------------------Color Adust Script----------------------------//
         $('#hueRange').on('input', function () {
             $('#hueValue').text($('#hueRange').val());
             apply();
         })
 
-        $('#tinitRange').on('input', function () {
-            $('#tinitValue').text($('#tinitRange').val());
+        $('#tintRange').on('input', function () {
+            $('#tintValue').text($('#tintRange').val());
         })
 
         $('#tempRange').on('input', function () {
