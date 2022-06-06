@@ -1,19 +1,17 @@
 <script src="/App_Plugins/UMedia/script.js"></script>
+<link rel="stylesheet" href="/App_Plugins/UMedia/imageStyling.css" />
 <link rel="stylesheet" href="/App_Plugins/UMedia/DashStyle.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-<link rel="stylesheet" href="/App_Plugins/UMedia/imageStyling.css" />
 
 <div class="uMediaDash" ng-controller="UMediaDashController as vm">
-    <div class="title">
-        <h1>UMedia Editor</h1>
-        <p>The UMedia Editor aims to add basic image processing straight to the Umbraco backoffice!!</p>
+    <div class="drop" >
+        <textarea id="areaa" ng-model="mediaId"></textarea>
     </div>
 
     <div class="workSpace">
         <div class="mediaCenter">
-            <p><input ng-model="mediaId" /></p>
-            <button id="but" ng-click="getMediaLink()" class="btn btn-success">Find Image</button>
-            <a id="save" class="btn btn-success">Download</a>
+            <a id="download" class="btn btn-success">Download</a>
+            <button id="reset" class="btn btn-success">Reset</button>
 
             <img id="sourceImage" />
 
@@ -23,7 +21,7 @@
 
         </div>
 
-        <div>
+        <div id="sliders">
             <div class="AdjustMenu" ng-click="showColorSliders()">
                 <p>Color Adjust<img id="colorToggle" src="/App_Plugins/UMedia/Icons/Umbraco-Blue-dropdown-arrow.png" /></p>
             </div>

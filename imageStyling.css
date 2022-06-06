@@ -13,3 +13,20 @@
     max-height: 420px;
     object-fit: contain;
 }
+
+.drop {
+    width: 450px;
+    height: 200px;
+    text-align: center;
+    border: dashed 1px #000000;
+    position: relative;
+    margin: 0 auto;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    height: 100%;
+    padding: 0;
+    background-color: #F6F4F4;
+}
