@@ -2,27 +2,43 @@
 var jquery = {
     getLink: function (link, name) { //takes the media link and media name as parameters
         $('#sourceImage').attr('src', link); //sets the source of the image to media link
-        $('#save').attr('download', name); //sets the downloaded file's name to the media item's name
+
+        $('#download').attr('download', name); //sets the downloaded file's name to the media item's name
+        $('#download').attr('href', canvas.toDataURL("image/png"));
+
+        $('#sliders').show();
     }
 };
 
 $(document).ready(function () {
+    $('#sliders').hide(); //sliders are hidden until an image is loaded
+    $('#reset').hide();
   /*  const sharp = require('sharp')*/;
+
     getSliders();
 
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
     $('input[type="range"]').mouseleave(function () {
-        $('#save').attr('href', canvas.toDataURL("image/png")); //updated link to canvas item
-    })
+        $('#download').attr('href', canvas.toDataURL("image/png")); //updates the link to the canvas image each time the mouse leaves a slider
+    });
 
+    $('input[type="range"]').on('input', function () {
+        $('#reset').show();
+    });
+
+    
 
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
         canvas.height = document.getElementById('sourceImage').height;
 
         apply();
+
+        $('#reset').click(function () {
+            reset();
+        });
     });
 
     //apply function applies all filters using the values from sliders and redraws the image on the canvas
@@ -121,5 +137,20 @@ $(document).ready(function () {
             $('#highlightsValue').text($('#highlightsRange').val());
         })
     }
-   
+  
+    function reset() {
+        $('#hueRange').val(0);
+        $('#hueValue').text($('#hueRange').val());
+
+        $('#satRange').val(100);
+        $('#satValue').text($('#satRange').val());
+
+        $('#brightRange').val(100);
+        $('#brightValue').text($('#brightRange').val());
+
+        $('#contrastRange').val(100);
+        $('#contrastValue').text($('#contrastRange').val());
+
+        apply();
+    }
 });
