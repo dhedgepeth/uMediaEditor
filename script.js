@@ -30,7 +30,10 @@ $(document).ready(function () {
 
     function apply() {
 
-        filters = 'brightness(' + $('#brightRange').val() + '%)' + 'contrast(' + $('#contrastRange').val() + '%)';
+        filters = 'brightness(' + $('#brightRange').val() + '%)' +
+            'contrast(' + $('#contrastRange').val() + '%)' +
+            'saturate(' + $('#satRange').val() + '%)' + 
+            'hue-rotate(' + $('#hueRange').val() + 'deg)';
         context.filter = filters;
 
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
@@ -40,6 +43,7 @@ $(document).ready(function () {
         //-------------------------------Color Adust Script----------------------------//
         $('#hueRange').on('input', function () {
             $('#hueValue').text($('#hueRange').val());
+            apply();
         })
 
         $('#tinitRange').on('input', function () {
@@ -52,6 +56,7 @@ $(document).ready(function () {
 
         $('#satRange').on('input', function () {
             $('#satValue').text($('#satRange').val());
+            apply();
         })
 
         $('#vibRange').on('input', function () {

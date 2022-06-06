@@ -1,5 +1,6 @@
 ﻿#sourceImage {
     display: none;
+    filter: hue-rotate(0deg);
 }
 
 .image-preview {
