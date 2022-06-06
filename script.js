@@ -13,6 +13,8 @@ $(document).ready(function () {
 
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
+    $('#save').attr('download', jquery.imageName);
+    
 
 
     $('#sourceImage').on('load', function () {
@@ -24,8 +26,6 @@ $(document).ready(function () {
 
     $('#save').click(function () {
         console.log('clicked save');
-        $('#save').attr('href', canvas.toDataURL("image/png"));
-        $('#save').attr('download', jquery.imageName);
     });
 
     function apply() {
@@ -34,6 +34,8 @@ $(document).ready(function () {
         context.filter = filters;
 
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
+
+        $('#save').attr('href', canvas.toDataURL("image/png"));
     }
 
     function getSliders() {
