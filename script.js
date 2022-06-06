@@ -42,8 +42,8 @@ $(document).ready(function () {
             apply();
         })
 
-        $('#tinitRange').on('input', function () {
-            $('#tinitValue').text($('#tinitRange').val());
+        $('#tintRange').on('input', function () {
+            $('#tintValue').text($('#tintRange').val());
         })
 
         $('#tempRange').on('input', function () {
