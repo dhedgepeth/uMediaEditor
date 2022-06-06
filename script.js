@@ -151,6 +151,9 @@ $(document).ready(function () {
         $('#contrastRange').val(100);
         $('#contrastValue').text($('#contrastRange').val());
 
+        $('#blurRange').val(0);
+        $('#blurValue').text($('#blurRange').val());
+
         apply();
     }
 });
