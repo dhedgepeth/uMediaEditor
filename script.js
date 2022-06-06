@@ -1,7 +1,6 @@
 ﻿/* Global variable used in angular controller */
 var jquery = {
     getLink: function (link) { //function to change image displayed on dashboard given a media link
-        console.log('image changed from script');
         $('#sourceImage').attr('src', link);
         imageName = name;
     },
@@ -9,11 +8,12 @@ var jquery = {
 };
 
 $(document).ready(function () {
-    getSliders();
+    getSliders(); //sets jquery listeners on all sliders
 
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
+    $('#save').attr('download', jquery.imageName);
 
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
@@ -22,13 +22,7 @@ $(document).ready(function () {
         apply();
     });
 
-    $('#save').click(function () {
-        console.log('clicked save');
-        $('#save').attr('href', canvas.toDataURL("image/png"));
-        $('#save').attr('download', jquery.imageName);
-    });
-
-    function apply() {
+    function apply() { //this function applies all filters using the values from sliders and redraws the image on the canvas
 
         filters = 'brightness(' + $('#brightRange').val() + '%)' +
             'contrast(' + $('#contrastRange').val() + '%)' +
@@ -37,6 +31,8 @@ $(document).ready(function () {
         context.filter = filters;
 
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
+
+        $('#save').attr('href', canvas.toDataURL("image/png"));
     }
 
     function getSliders() {
