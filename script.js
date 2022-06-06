@@ -1,8 +1,8 @@
-﻿/* Global variable used in angular controller */
+﻿/* global function used to pass the media link from umediadash.controller.js */
 var jquery = {
-    getLink: function (link, name) { //function to change image displayed on dashboard given a media link
-        $('#sourceImage').attr('src', link);
-        $('#save').attr('download', name); //sets the download 
+    getLink: function (link, name) { //takes the media link and media name as parameters
+        $('#sourceImage').attr('src', link); //sets the source of the image to media link
+        $('#save').attr('download', name); //sets the downloaded file's name to the media item's name
     }
 };
 
@@ -12,7 +12,10 @@ $(document).ready(function () {
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
-    $('#save').attr('download', jquery.imageName); //sets the download 
+    $('input[type="range"]').mouseleave(function () {
+        $('#save').attr('href', canvas.toDataURL("image/png")); //updated link to canvas item
+    })
+
 
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
@@ -31,8 +34,6 @@ $(document).ready(function () {
         context.filter = filters;
 
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
-
-        $('#save').attr('href', canvas.toDataURL("image/png"));
     }
 
     //getSliders sets jquery listeners on all sliders and updates the displayed values

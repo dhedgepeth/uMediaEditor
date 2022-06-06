@@ -11,7 +11,7 @@
             alert('Please enter an Image ID')
         } else {
             mediaResource.getById($scope.mediaId).then(function (media) {
-                jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link to media library
+                jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link and name of media item
             });
         }
     }
