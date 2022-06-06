@@ -7,6 +7,7 @@ var jquery = {
 };
 
 $(document).ready(function () {
+  /*  const sharp = require('sharp')*/;
     getSliders();
 
     let canvas = document.getElementById('canvas');
@@ -27,14 +28,24 @@ $(document).ready(function () {
     //apply function applies all filters using the values from sliders and redraws the image on the canvas
     function apply() { 
 
+
         filters = 'brightness(' + $('#brightRange').val() + '%)' +
             'contrast(' + $('#contrastRange').val() + '%)' +
             'saturate(' + $('#satRange').val() + '%)' + 
-            'hue-rotate(' + $('#hueRange').val() + 'deg)';
+            'hue-rotate(' + $('#hueRange').val() + 'deg)' + 
+            'blur(' + $('#blurRange').val() / 6 + 'px)';
         context.filter = filters;
 
+     
+
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
+
+       
     }
+
+    /*function applySharp() {
+        sharp(document.getElementById('sourceImage')).sharpen();
+    }*/
 
     //getSliders sets jquery listeners on all sliders and updates the displayed values
     function getSliders() { 
@@ -65,10 +76,12 @@ $(document).ready(function () {
         //------------------------------------Detail Adjust Script-------------------------------//
         $('#sharpRange').on('input', function () {
             $('#sharpValue').text($('#sharpRange').val());
+            apply();
         })
 
         $('#blurRange').on('input', function () {
             $('#blurValue').text($('#blurRange').val());
+            apply();
         })
 
         $('#smoothRange').on('input', function () {
@@ -108,4 +121,5 @@ $(document).ready(function () {
             $('#highlightsValue').text($('#highlightsRange').val());
         })
     }
+   
 });
