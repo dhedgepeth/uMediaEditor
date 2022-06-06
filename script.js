@@ -1,19 +1,21 @@
-﻿/* Global variable used in angular controller */
+﻿/* global function used to pass the media link from umediadash.controller.js */
 var jquery = {
-    getLink: function (link) { //function to change image displayed on dashboard given a media link
-        $('#sourceImage').attr('src', link);
-        imageName = name;
-    },
-    imageName: ''
+    getLink: function (link, name) { //takes the media link and media name as parameters
+        $('#sourceImage').attr('src', link); //sets the source of the image to media link
+        $('#save').attr('download', name); //sets the downloaded file's name to the media item's name
+    }
 };
 
 $(document).ready(function () {
-    getSliders(); //sets jquery listeners on all sliders
+    getSliders();
 
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
-    $('#save').attr('download', jquery.imageName);
+    $('input[type="range"]').mouseleave(function () {
+        $('#save').attr('href', canvas.toDataURL("image/png")); //updated link to canvas item
+    })
+
 
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
@@ -22,7 +24,8 @@ $(document).ready(function () {
         apply();
     });
 
-    function apply() { //this function applies all filters using the values from sliders and redraws the image on the canvas
+    //apply function applies all filters using the values from sliders and redraws the image on the canvas
+    function apply() { 
 
         filters = 'brightness(' + $('#brightRange').val() + '%)' +
             'contrast(' + $('#contrastRange').val() + '%)' +
@@ -31,11 +34,10 @@ $(document).ready(function () {
         context.filter = filters;
 
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
-
-        $('#save').attr('href', canvas.toDataURL("image/png"));
     }
 
-    function getSliders() {
+    //getSliders sets jquery listeners on all sliders and updates the displayed values
+    function getSliders() { 
         //-------------------------------Color Adust Script----------------------------//
         $('#hueRange').on('input', function () {
             $('#hueValue').text($('#hueRange').val());
