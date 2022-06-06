@@ -1,47 +1,78 @@
-﻿/* Global variable used in angular controller */
+﻿/* global function used to pass the media link from umediadash.controller.js */
 var jquery = {
-    getLink: function (link) { //function to change image displayed on dashboard given a media link
-        console.log('image changed from script');
-        $('#sourceImage').attr('src', link);
-        imageName = name;
-        console.log();
-    },
-    imageName: ''
+    getLink: function (link, name) { //takes the media link and media name as parameters
+        $('#sourceImage').attr('src', link); //sets the source of the image to media link
+
+        $('#download').attr('download', name); //sets the downloaded file's name to the media item's name
+        $('#download').attr('href', canvas.toDataURL("image/png"));
+
+        $('#sliders').show();
+    }
 };
 
 $(document).ready(function () {
+    $('#sliders').hide(); //sliders are hidden until an image is loaded
+    $('#reset').hide();
+  /*  const sharp = require('sharp')*/;
+
     getSliders();
 
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
+    $('input[type="range"]').mouseleave(function () {
+        $('#download').attr('href', canvas.toDataURL("image/png")); //updates the link to the canvas image each time the mouse leaves a slider
+    });
+
+    $('input[type="range"]').on('input', function () {
+        $('#reset').show();
+    });
+
+    
+
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
         canvas.height = document.getElementById('sourceImage').height;
 
-        context.filter = 'grayscale(1)';
-
         apply();
 
-        /* Allows for the user to download the image on the canvas locally 
-        Eventually will allow the user to save the edited image in Umbraco */
-        $('#save').attr('download', jquery.imageName);
-        $('#save').attr('href', canvas.toDataURL("image/png"));
+        $('#reset').click(function () {
+            reset();
+        });
     });
 
-    function apply() {
+    //apply function applies all filters using the values from sliders and redraws the image on the canvas
+    function apply() { 
+
+
+        filters = 'brightness(' + $('#brightRange').val() + '%)' +
+            'contrast(' + $('#contrastRange').val() + '%)' +
+            'saturate(' + $('#satRange').val() + '%)' + 
+            'hue-rotate(' + $('#hueRange').val() + 'deg)' + 
+            'blur(' + $('#blurRange').val() / 6 + 'px)';
+        context.filter = filters;
+
+     
+
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
-        console.log('called apply');
+
+       
     }
 
-    function getSliders() {
+    /*function applySharp() {
+        sharp(document.getElementById('sourceImage')).sharpen();
+    }*/
+
+    //getSliders sets jquery listeners on all sliders and updates the displayed values
+    function getSliders() { 
         //-------------------------------Color Adust Script----------------------------//
         $('#hueRange').on('input', function () {
             $('#hueValue').text($('#hueRange').val());
+            apply();
         })
 
-        $('#tinitRange').on('input', function () {
-            $('#tinitValue').text($('#tinitRange').val());
+        $('#tintRange').on('input', function () {
+            $('#tintValue').text($('#tintRange').val());
         })
 
         $('#tempRange').on('input', function () {
@@ -50,6 +81,7 @@ $(document).ready(function () {
 
         $('#satRange').on('input', function () {
             $('#satValue').text($('#satRange').val());
+            apply();
         })
 
         $('#vibRange').on('input', function () {
@@ -60,10 +92,12 @@ $(document).ready(function () {
         //------------------------------------Detail Adjust Script-------------------------------//
         $('#sharpRange').on('input', function () {
             $('#sharpValue').text($('#sharpRange').val());
+            apply();
         })
 
         $('#blurRange').on('input', function () {
             $('#blurValue').text($('#blurRange').val());
+            apply();
         })
 
         $('#smoothRange').on('input', function () {
@@ -74,6 +108,7 @@ $(document).ready(function () {
         //-------------------------------------Light Adjust Script------------------------------//
         $('#brightRange').on('input', function () {
             $('#brightValue').text($('#brightRange').val());
+            apply();
         })
 
 
@@ -83,6 +118,7 @@ $(document).ready(function () {
 
         $('#contrastRange').on('input', function () {
             $('#contrastValue').text($('#contrastRange').val());
+            apply();
         })
 
         $('#exposureRange').on('input', function () {
@@ -101,5 +137,23 @@ $(document).ready(function () {
             $('#highlightsValue').text($('#highlightsRange').val());
         })
     }
-});
+  
+    function reset() {
+        $('#hueRange').val(0);
+        $('#hueValue').text($('#hueRange').val());
 
+        $('#satRange').val(100);
+        $('#satValue').text($('#satRange').val());
+
+        $('#brightRange').val(100);
+        $('#brightValue').text($('#brightRange').val());
+
+        $('#contrastRange').val(100);
+        $('#contrastValue').text($('#contrastRange').val());
+
+        $('#blurRange').val(0);
+        $('#blurValue').text($('#blurRange').val());
+
+        apply();
+    }
+});

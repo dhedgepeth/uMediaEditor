@@ -6,20 +6,20 @@
     $scope.hideDetailSliders = true;
     $scope.hideLightSliders = true;
 
-    $scope.getMediaLink = function () {
-        if ($scope.mediaId == undefined) {
-            alert('Please enter an Image ID')
-        } else {
-            mediaResource.getById($scope.mediaId).then(function (media) {
-                jquery.getLink(media.mediaLink); //function call to global jquery function to pass link to media library
-                jquery.imageName = media.name + '-edit.png'; //holds the file name for local downloads
-            });
-        }
-    }
+    $('#areaa').on('input', function () {
+        console.log('angular?');
+
+        let stringArr = $('#areaa').val().split('/');
+        console.log(stringArr);
+
+        mediaResource.getById(stringArr[stringArr.length - 1]).then(function (media) {
+            console.log(media);
+            jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link and name of media item
+        });
+        $('#areaa').val('');
+    });
 
     //---------------Nix work---------------//
-    
-
     $scope.showColorSliders = function () {
         $scope.hideColorSliders = !$scope.hideColorSliders;
         var img = document.getElementById("colorToggle");   
