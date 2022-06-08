@@ -1,4 +1,4 @@
-﻿#sourceImage {
+﻿﻿#sourceImage {
     display: none;
     filter: hue-rotate(0deg);
 }
@@ -29,4 +29,5 @@ textarea {
     height: 100%;
     padding: 0;
     background-color: #F6F4F4;
+    caret-color: transparent;
 }
