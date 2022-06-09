@@ -1,4 +1,9 @@
-﻿﻿#sourceImage {
+﻿.uMediaDash {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+﻿#sourceImage {
     display: none;
     filter: hue-rotate(0deg);
 }
@@ -15,7 +20,7 @@
 }
 
 .drop {
-    width: 450px;
+    width: 90%;
     height: 200px;
     text-align: center;
     border: dashed 1px #000000;
@@ -30,4 +35,5 @@ textarea {
     padding: 0;
     background-color: #F6F4F4;
     caret-color: transparent;
+    cursor: default;
 }

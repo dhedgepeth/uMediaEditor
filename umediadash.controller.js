@@ -1,4 +1,5 @@
 ﻿angular.module("umbraco").controller("UMediaDashController", function ($scope, mediaResource) {
+    let link = '';
     var vm = this;
 
     /* variables used to hide sliders in ng-hide directive
@@ -7,16 +8,35 @@
     $scope.hideDetailSliders = true;
     $scope.hideLightSliders = true;
 
-    $('#areaa').on('input', function () {
-        if ($('#areaa').val().length > 1) { //checks that the input is a valid length before handling as an image link
-            let stringArr = $('#areaa').val().split('/'); //splits link by '/', image id is always last in the array
+    $('#dropArea').on('input', function () {
+        if ($('#dropArea').val().length > 1) { //checks that the input is a valid length before handling as an image link
+            let stringArr = $('#dropArea').val().split('/'); //splits link by '/', image id is always last in the array
             console.log(stringArr);
 
-            mediaResource.getById(stringArr[stringArr.length - 1]).then(function (media) {
-                jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link and name of media item
-            });
+            if (!isNaN(stringArr[stringArr.length - 1])) { //check that the link passed is a number before attempting to find by id
+                mediaResource.getById(stringArr[stringArr.length - 1]).then(function (media) {
+                    console.log(media)
+                    link = media.mediaLink;
+                    jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link and name of media item
+                });
+            }
         }
-        $('#areaa').val(''); //reset the input to default value
+        $('#dropArea').val(''); //reset the input to default value
+    });
+
+    $('#save').click(function () {
+        mediaResource.getScaffold(1055, 'Image').then(function (scaffold) {
+            let img = scaffold;
+
+            img.name = 'testing';
+            img.mediaLink = link;
+
+            mediaResource.save(img, true, []).then(function () {
+                console.log('saved');
+            })
+
+            console.log(img);   
+        });
     });
 
     /* show and hide sliders */

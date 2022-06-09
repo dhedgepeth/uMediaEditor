@@ -1,17 +1,19 @@
 <script src="/App_Plugins/UMedia/script.js"></script>
-<link rel="stylesheet" href="/App_Plugins/UMedia/imageStyling.css" />
-<link rel="stylesheet" href="/App_Plugins/UMedia/DashStyle.css" />
+<!--<link rel="stylesheet" href="/App_Plugins/UMedia/imageStyling.css" />
+<link rel="stylesheet" href="/App_Plugins/UMedia/DashStyle.css" />-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<link rel="stylesheet" href="/App_Plugins/UMedia/style.css" />
 
 <div class="uMediaDash" ng-controller="UMediaDashController as vm">
     <div class="drop" >
-        <textarea id="areaa" ng-model="mediaId"></textarea>
+        <textarea id="dropArea" ng-model="mediaId"></textarea>
     </div>
 
     <div class="workSpace">
         <div class="mediaCenter">
             <a id="download" class="btn btn-success">Download</a>
             <button id="reset" class="btn btn-success">Reset</button>
+            <button id="save" class="btn btn-success">Save</button>
 
             <img id="sourceImage" style="display:none" />
 
@@ -34,7 +36,7 @@
                             <div class="value right"><span id="hueValue">0</span></div>
                         </div>
                     </div>
-                    <div class="SliderContainer">
+                   <!-- <div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Tint</div>
                             <input type="range" min="-100" max="100" value="0" id="tintRange">
@@ -47,7 +49,7 @@
                             <input type="range" min="-100" max="100" value="0" id="tempRange">
                             <div class="value right"><span id="tempValue">0</span></div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Sat</div>
@@ -55,27 +57,27 @@
                             <div class="value right"><span id="satValue">100</span></div>
                         </div>
                     </div>
-                    <div class="SliderContainer">
+                    <!--<div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Vib</div>
                             <input type="range" min="-100" max="100" value="0" id="vibRange">
                             <div class="value right"><span id="vibValue">0</span></div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="AdjustMenu" ng-click="showDetailSliders()">
                 <p>Detail Adjust<img id="detailToggle" class="no-rotated-image" src="/App_Plugins/UMedia/Icons/Umbraco-Blue-dropdown-arrow.png" /></p>
             </div>
             <div class="adjustBlock">
                 <div class="animate__animated animate__fadeInDown" ng-hide="hideDetailSliders">
-                    <div class="SliderContainer">
+                    <!--<div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Sharp</div>
                             <input type="range" min="0" max="100" value="0" id="sharpRange">
                             <div class="value right"><span id="sharpValue">0</span></div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Blur</div>
@@ -83,13 +85,13 @@
                             <div class="value right"><span id="blurValue">0</span></div>
                         </div>
                     </div>
-                    <div class="SliderContainer">
+                    <!--<div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Smooth</div>
                             <input type="range" min="0" max="100" value="0" id="smoothRange">
                             <div class="value right"><span id="smoothValue">0</span></div>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
             </div>
@@ -105,13 +107,13 @@
                             <div class="value right"><span id="brightValue">100</span></div>
                         </div>
                     </div>
-                    <div class="SliderContainer">
+                    <!--<div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Shadow</div>
                             <input type="range" min="-100" max="100" value="0" id="shadowRange">
                             <div class="value right"><span id="shadowValue">0</span></div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Cont</div>
@@ -119,7 +121,7 @@
                             <div class="value right"><span id="contrastValue">100</span></div>
                         </div>
                     </div>
-                    <div class="SliderContainer">
+                    <!--<div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Expo</div>
                             <input type="range" min="-100" max="100" value="0" id="exposureRange">
@@ -146,7 +148,7 @@
                             <input type="range" min="-100" max="100" value="0" id="highlightsRange">
                             <div class="value right"><span id="highlightsValue">0</span></div>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
             </div>
