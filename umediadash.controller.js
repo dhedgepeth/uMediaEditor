@@ -7,6 +7,7 @@
     $scope.hideColorSliders = true;
     $scope.hideDetailSliders = true;
     $scope.hideLightSliders = true;
+    $scope.hideCanvas = true;
 
     $('#dropArea').on('input', function () {
         if ($('#dropArea').val().length > 1) { //checks that the input is a valid length before handling as an image link
@@ -18,6 +19,7 @@
                     console.log(media)
                     link = media.mediaLink;
                     jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link and name of media item
+                    $scope.hideCanvas = false;
                 });
             }
         }
