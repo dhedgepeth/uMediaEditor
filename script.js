@@ -7,11 +7,6 @@ var jquery = {
 };
 
 $(document).ready(function () {
-    /* sliders and reset/download buttons are hidden on the page until an image is loaded */
-    $('#sliders').hide(); 
-    $('#reset').hide();
-    $('#download').hide();
-
   /*  const sharp = require('sharp')*/;
 
     getSliders();
@@ -31,11 +26,6 @@ $(document).ready(function () {
         $('#reset').click(function () {
             reset();
         });
-
-        /* sliders and reset/download buttons are shown once an image is loaded */
-        $('#sliders').show(); 
-        $('#reset').show();
-        $('#download').show();
 
         $('#download').attr('href', canvas.toDataURL("image/png")); //sets the initial download link for the canvas
     });

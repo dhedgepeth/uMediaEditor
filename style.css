@@ -11,12 +11,12 @@
 }
 
 .drop {
-    max-height: 200px;
     width: 95%;
-    height: 10vh;
+    height: 395px;
     border: dashed 1px black;
     margin: 0 auto;
     margin-bottom: 10px;
+    background-color: #FFFFFF;
 }
 
 #dropArea {
@@ -24,9 +24,10 @@
     height: 100%;
     resize: none;
     padding: 0;
-    background-color: #F6F4F4;
+    background-color: #FFFFFF;
     caret-color: transparent;
     cursor: default;
+    background-image: url(/App_Plugins/UMedia/Icons/drag&drop.png);
 }
 
 .workSpace {
@@ -47,6 +48,10 @@
     border: solid 5px #fff;
     border-radius: 10px;
     margin-left: 5%;
+}
+
+#sliders{
+    margin: 0 2% 0 2%;
 }
 
 
@@ -182,4 +187,8 @@
 
 .animate__animated.animate__fadeInDown {
     --animate-duration: 0.5s;
+}
+
+#buttons {
+    margin-left: 5%;
 }
