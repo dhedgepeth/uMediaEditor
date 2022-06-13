@@ -15,7 +15,6 @@
     "/App_Plugins/UMedia/script.js"
   ],
   "css": [
-    "/App_Plugins/UMedia/DashStyle.css",
-    "/App_Plugins/UMedia/imageStyling.css"
+    "/App_Plugins/UMedia/style.css"
   ]
 }

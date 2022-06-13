@@ -2,17 +2,11 @@
 var jquery = {
     getLink: function (link, name) { //takes the media link and media name as parameters
         $('#sourceImage').attr('src', link); //sets the source of the image to media link
-
         $('#download').attr('download', name); //sets the downloaded file's name to the media item's name
-        $('#download').attr('href', canvas.toDataURL("image/png"));
-
-        $('#sliders').show();
     }
 };
 
 $(document).ready(function () {
-    $('#sliders').hide(); //sliders are hidden until an image is loaded
-    $('#reset').hide();
   /*  const sharp = require('sharp')*/;
 
     getSliders();
@@ -24,46 +18,35 @@ $(document).ready(function () {
         $('#download').attr('href', canvas.toDataURL("image/png")); //updates the link to the canvas image each time the mouse leaves a slider
     });
 
-    $('input[type="range"]').on('input', function () {
-        $('#reset').show();
-    });
-
-    
-
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
         canvas.height = document.getElementById('sourceImage').height;
-
         apply();
 
         $('#reset').click(function () {
             reset();
         });
+
+        $('#download').attr('href', canvas.toDataURL("image/png")); //sets the initial download link for the canvas
     });
 
-    //apply function applies all filters using the values from sliders and redraws the image on the canvas
+    /* Applies all filters using the values from sliders and redraws the image on the canvas */
     function apply() { 
-
-
         filters = 'brightness(' + $('#brightRange').val() + '%)' +
             'contrast(' + $('#contrastRange').val() + '%)' +
             'saturate(' + $('#satRange').val() + '%)' + 
             'hue-rotate(' + $('#hueRange').val() + 'deg)' + 
-            'blur(' + $('#blurRange').val() / 6 + 'px)';
+            'blur(' + $('#blurRange').val() / 6 + 'px)'; //string variable holding filters and their values to be applied to the canvas context
         context.filter = filters;
 
-     
-
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
-
-       
     }
 
     /*function applySharp() {
         sharp(document.getElementById('sourceImage')).sharpen();
     }*/
 
-    //getSliders sets jquery listeners on all sliders and updates the displayed values
+    /* Sets jquery listeners on all sliders and updates the displayed values */
     function getSliders() { 
         //-------------------------------Color Adust Script----------------------------//
         $('#hueRange').on('input', function () {
@@ -137,7 +120,8 @@ $(document).ready(function () {
             $('#highlightsValue').text($('#highlightsRange').val());
         })
     }
-  
+
+    /* Resets all sliders to their default values */
     function reset() {
         $('#hueRange').val(0);
         $('#hueValue').text($('#hueRange').val());

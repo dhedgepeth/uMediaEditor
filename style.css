@@ -5,43 +5,84 @@
     font-family: Lato,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-.workSpace {
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    white-space: nowrap;
-    padding: 1rem;
+.uMediaDash {
+    max-width: 100vw;
+    overflow: hidden;
 }
 
+.drop {
+    width: 95%;
+    height: 395px;
+    border: dashed 1px black;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+}
+
+#dropArea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    padding: 0;
+    background-color: #FFFFFF;
+    caret-color: transparent;
+    cursor: default;
+    background-image: url(/App_Plugins/UMedia/Icons/drag&drop.png);
+}
+
+.workSpace {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+.imagePreview {
+    justify-content: left;
+    margin-top: 20px;
+}
+
+#canvas {
+    max-height: 45vh;
+    min-height: 250px;
+    object-fit: contain;
+    border: solid 5px #fff;
+    border-radius: 10px;
+    margin-left: 5%;
+}
+
+#sliders{
+    margin: 0 2% 0 2%;
+}
 
 
 .AdjustMenu {
     margin: 5px;
     height: 33px;
-    width: 400px;
+    min-width: 175px;
+    width: 15vw;
     background: #fff;
     border-radius: 10px;
     padding: 0 1rem 0 1rem;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
     opacity: 0.9;
     display: grid;
+    cursor: pointer;
 }
 
 
     .AdjustMenu:hover {
         opacity: 1;
-        cursor: pointer;
     }
 
     .AdjustMenu p {
         display: flex;
-        height: 33px;
-        width: 370px;
+        max-height: 35px;
         align-items: center;
         justify-content: space-between;
         font-size: 18px;
         color: #3544B1;
         font-weight: 600;
+        user-select: none;
     }
 
         .AdjustMenu p img {
@@ -53,7 +94,8 @@
     margin: 5px;
     padding-top: 2rem;
     height: 90px;
-    width: 400px;
+    min-width: 175px;
+    width: 15vw;
     background: #fff;
     border-radius: 10px;
     padding: 0 65px 0 45px;
@@ -145,4 +187,8 @@
 
 .animate__animated.animate__fadeInDown {
     --animate-duration: 0.5s;
+}
+
+#buttons {
+    margin-left: 5%;
 }
