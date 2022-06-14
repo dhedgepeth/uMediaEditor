@@ -21,7 +21,7 @@ $(document).ready(function () {
     $('#sourceImage').on('load', function () {
         canvas.width = document.getElementById('sourceImage').width;
         canvas.height = document.getElementById('sourceImage').height;
-        apply();
+        reset(); //reset the slider values each time a new image is loaded
 
         $('#reset').click(function () {
             reset();

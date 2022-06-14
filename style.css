@@ -12,8 +12,8 @@
 
 .drop {
     width: 95%;
-    height: 395px;
-    border: dashed 1px black;
+    height: 325px;
+    border: dashed 1px #D8D7D9;
     margin: 0 auto;
     margin-bottom: 10px;
     background-color: #FFFFFF;
@@ -28,6 +28,8 @@
     caret-color: transparent;
     cursor: default;
     background-image: url(/App_Plugins/UMedia/Icons/drag&drop.png);
+    background-size: cover;
+    background-position: center center;
 }
 
 .workSpace {
