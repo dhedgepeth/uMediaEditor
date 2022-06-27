@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <div align="center">
     <a href="https://github.com/dhedgepeth/uMediaEditor">
-    <img src="assets/images/uME-icon.png" alt="Logo" width="80" height="80">
+    <img src="assets/images/uME-icon.png" alt="Logo" width="90" height="90">
   </a>
   <h3 align="center">uMediaEditor</h3>
 
