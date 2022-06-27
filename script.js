@@ -7,8 +7,6 @@ var jquery = {
 };
 
 $(document).ready(function () {
-  /*  const sharp = require('sharp')*/;
-
     getSliders();
 
     let canvas = document.getElementById('canvas');
@@ -41,10 +39,6 @@ $(document).ready(function () {
 
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
     }
-
-    /*function applySharp() {
-        sharp(document.getElementById('sourceImage')).sharpen();
-    }*/
 
     /* Sets jquery listeners on all sliders and updates the displayed values */
     function getSliders() { 

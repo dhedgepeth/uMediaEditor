@@ -1,5 +1,4 @@
 ﻿angular.module("umbraco").controller("UMediaDashController", function ($scope, mediaResource) {
-    let link = '';
     var vm = this;
 
     /* variables used to hide sliders in ng-hide directive
@@ -22,21 +21,6 @@
             }
         }
         $('#dropArea').val(''); //reset the input to default value
-    });
-
-    $('#save').click(function () {
-        mediaResource.getScaffold(-1, 'Image').then(function (scaffold) {
-            let img = scaffold;
-
-            img.name = 'testing';
-            img.mediaLink = link;
-
-            console.log(img)
-
-           /* mediaResource.save(img, true, []).then(function () {
-                console.log('saved');
-            }) */
-        });
     });
 
     /* show and hide sliders & toggle animations*/
