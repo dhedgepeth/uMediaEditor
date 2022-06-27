@@ -35,7 +35,7 @@ Of course we still want to bring more functonality as we expand this package so 
 
 ### Umbraco cloud 
 
-Installation with Umbraco cloud requires Cloning your project down localy to apply new packages
+Installation with Umbraco cloud requires Cloning your project down locally to apply new packages
 
 ### Installation
 
