@@ -15,18 +15,12 @@ Using Nuget run the command "" in your project folder to install uMedia editor
 ## Usage
 
 After navigating into the Umbraco backoffice, make your way to the media tab, here you will find a new tab on the dashboard.
-```md
     ![Example](assets/images/Tutorial_1.png)
-```
 Once you enter the uME Dashboard, use the drop down of the tree view to select your photo, draging it onto the editor area.
-```md
     ![Click](assets/images/Tutorial_2.png)
     ![and drag](assets/images/Tutorial_3.png)
-```
 From here you're able to make edits to your image using the drop down menus on the right hand side, and save your image using the buttons under the image.
-```md
     ![](assets/images/Tutorial_4.png)
-```
 
 ## Credits
 
