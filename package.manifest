@@ -2,7 +2,7 @@
   "dashboards": [
     {
       "alias": "uMediaDash",
-      "view": "/App_Plugins/UMedia/UMedia.html",
+      "view": "/App_Plugins/uMediaEditor/UMedia.html",
       "sections": [ "media" ],
       "weight": 10,
       "access": [
@@ -11,10 +11,10 @@
     }
   ],
   "javascript": [
-    "/App_Plugins/UMedia/umediadash.controller.js",
-    "/App_Plugins/UMedia/script.js"
+    "/App_Plugins/uMediaEditor/umediadash.controller.js",
+    "/App_Plugins/uMediaEditor/script.js"
   ],
   "css": [
-    "/App_Plugins/UMedia/style.css"
+    "/App_Plugins/uMediaEditor/style.css"
   ]
 }
