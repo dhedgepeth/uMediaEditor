@@ -6,11 +6,11 @@
   <p align="center">
     Expand the Umbraco Media tab with edits!
     <br />
-    <a href="https://github.com/dhedgepeth/uMediaEditor"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/dhedgepeth/uMediaEditor"><strong>Explore the docs ï¿½</strong></a>
     <br />
     <br />
     <a href="https://github.com/dhedgepeth/uMediaEditor/issues">Report Bug</a>
-    ·
+    ï¿½
     <a href="https://github.com/dhedgepeth/uMediaEditor/issues">Request Feature</a>
   </p>
 </div>
@@ -52,6 +52,7 @@ After navigating into the Umbraco backoffice, make your way to the media tab, he
 Once you enter the uME Dashboard, use the drop down of the tree view to select your photo, draging it onto the editor area.
     ![Click](assets/images/Tutorial_2.png)
     ![and drag](assets/images/Tutorial_3.png)
+
 :star2: From here you're able to make edits to your image using the drop down menus on the right hand side, and save your image using the buttons under the image :star2:
     ![](assets/images/Tutorial_4.png)
 
@@ -63,6 +64,9 @@ Once you enter the uME Dashboard, use the drop down of the tree view to select y
 - [ ] Add Tempeture
 
 See the [open issues](https://github.com/dhedgepeth/uMediaEditor/issues) for a full list of proposed features (and known issues).
+
+From here you're able to make edits to your image using the drop down menus on the right hand side, and save your image using the buttons under the image.
+    ![](assets/images/Tutorial_4.png)
 
 ## Credits
 
