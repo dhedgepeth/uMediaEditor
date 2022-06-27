@@ -27,7 +27,7 @@
     background-color: #FFFFFF;
     caret-color: transparent;
     cursor: default;
-    background-image: url(/App_Plugins/uMediaEditor/Icons/drag&drop.png);
+    background-image: url(/App_Plugins/uMediaEditor/assets/Icons/drag&drop.png);
     background-size: cover;
     background-position: center center;
 }
