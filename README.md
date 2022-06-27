@@ -65,9 +65,6 @@ Once you enter the uME Dashboard, use the drop down of the tree view to select y
 
 See the [open issues](https://github.com/dhedgepeth/uMediaEditor/issues) for a full list of proposed features (and known issues).
 
-From here you're able to make edits to your image using the drop down menus on the right hand side, and save your image using the buttons under the image.
-    ![](assets/images/Tutorial_4.png)
-
 ## Credits
 
 Davis Hedgepeth | https://github.com/dhedgepeth
