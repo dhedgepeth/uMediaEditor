@@ -1,7 +1,7 @@
 <script src="/App_Plugins/UMedia/script.js"></script>
 <!--<link rel="stylesheet" href="/App_Plugins/UMedia/imageStyling.css" />
-<link rel="stylesheet" href="/App_Plugins/UMedia/DashStyle.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />-->
+<link rel="stylesheet" href="/App_Plugins/UMedia/DashStyle.css" />-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <link rel="stylesheet" href="/App_Plugins/UMedia/style.css" />
 
 <div class="uMediaDash" ng-controller="UMediaDashController as vm">
@@ -10,6 +10,7 @@
     </div>
 
     <div class="workSpace">
+
         <div class="mediaCenter">
             <img id="sourceImage" style="display:none" />
 
@@ -27,7 +28,7 @@
                     <div class="SliderContainer">
                         <div class="slider">
                             <div class="value left">Hue</div>
-                            <input type="range" min="0" max="180" value="0" id="hueRange">
+                            <input type="range" min="0" max="360" value="0" id="hueRange">
                             <div class="value right"><span id="hueValue">0</span></div>
                         </div>
                     </div>
@@ -151,9 +152,9 @@
         </div>
     </div>
 
-    <div ng-hide="hideEditors">
+    <div class="buttons" ng-hide="hideEditors">
         <a id="download" class="btn btn-success">Download</a>
         <button id="reset" class="btn btn-success">Reset</button>
-        <button id="save" class="btn btn-success">Save</button>
+        <!--<button id="save" class="btn btn-success">Save</button>-->
     </div>
 </div>

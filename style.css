@@ -12,8 +12,8 @@
 
 .drop {
     width: 95%;
-    height: 395px;
-    border: dashed 1px black;
+    height: 325px;
+    border: dashed 1px #D8D7D9;
     margin: 0 auto;
     margin-bottom: 10px;
     background-color: #FFFFFF;
@@ -28,6 +28,8 @@
     caret-color: transparent;
     cursor: default;
     background-image: url(/App_Plugins/UMedia/Icons/drag&drop.png);
+    background-size: cover;
+    background-position: center center;
 }
 
 .workSpace {
@@ -36,9 +38,15 @@
     white-space: nowrap;
 }
 
+.mediaCenter {
+    display: flex;
+    margin: 0  0 10px 10px;
+}
+
 .imagePreview {
     justify-content: left;
     margin-top: 20px;
+    margin-left: 2.5%;
 }
 
 #canvas {
@@ -56,6 +64,7 @@
 
 
 .AdjustMenu {
+    margin-right: 2.5%;
     margin: 5px;
     height: 33px;
     min-width: 175px;
@@ -189,6 +198,6 @@
     --animate-duration: 0.5s;
 }
 
-#buttons {
-    margin-left: 5%;
+.buttons {
+    margin-left: 2.5%;
 }

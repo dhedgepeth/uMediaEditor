@@ -12,14 +12,11 @@
     $('#dropArea').on('input', function () {
         if ($('#dropArea').val().length > 1) { //checks that the input is a valid length before handling as an image link
             let stringArr = $('#dropArea').val().split('/'); //splits link by '/', image id is always last in the array
-            console.log(stringArr);
 
             if (!isNaN(stringArr[stringArr.length - 1])) { //check that the link passed is a number before attempting to find by id
                 mediaResource.getById(stringArr[stringArr.length - 1]).then(function (media) {
-                    console.log(media)
-                    link = media.mediaLink;
                     jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link and name of media item
-
+                    console.log(media)
                     $scope.hideEditors = false;
                 });
             }
@@ -28,21 +25,21 @@
     });
 
     $('#save').click(function () {
-        mediaResource.getScaffold(1055, 'Image').then(function (scaffold) {
+        mediaResource.getScaffold(-1, 'Image').then(function (scaffold) {
             let img = scaffold;
 
             img.name = 'testing';
             img.mediaLink = link;
 
-            mediaResource.save(img, true, []).then(function () {
-                console.log('saved');
-            })
+            console.log(img)
 
-            console.log(img);   
+           /* mediaResource.save(img, true, []).then(function () {
+                console.log('saved');
+            }) */
         });
     });
 
-    /* show and hide sliders */
+    /* show and hide sliders & toggle animations*/
     $scope.showColorSliders = function () {
         $scope.hideColorSliders = !$scope.hideColorSliders;
         $('#colorToggle').toggleClass('no-rotated-image rotated-image');
