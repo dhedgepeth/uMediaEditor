@@ -107,7 +107,7 @@
     width: 15vw;
     background: #fff;
     border-radius: 10px;
-    padding: 0 65px 0 45px;
+    padding: 0 1rem 0 1rem;
     box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
     opacity: 0.9;
     display: grid;
@@ -120,14 +120,15 @@
 
     .SliderContainer input {
         -webkit-appearance: none;
-        width: 75%;
+        width: 70%;
         height: 3px;
         background: #ddd;
         border-radius: 5px;
         outline: none;
         border: none;
         z-index: 2222;
-        justify-content: space-between
+        padding: 2px;
+        margin: 0 5px 0 5px;
     }
 
         .SliderContainer input::-webkit-slider-thumb {
@@ -154,27 +155,27 @@
 
 
 .slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100%;
-    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content:space-between;
 }
 
-    .slider .value {
-        position: absolute;
+
+    .value {
         font-size: 18px;
         color: #3544B1;
         font-weight: 600;
+        
     }
 
-        .slider .value.left {
+       /* .slider .value.left {
             left: -25px;
             margin: -5px;
-        }
+        }*/
 
         .slider .value.right {
-            right: -10px;
+            width: 35.25px;
             font-size: 135%
         }
 
