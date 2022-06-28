@@ -64,7 +64,7 @@ Once you enter the uME Dashboard, use the drop down of the tree view to select y
 - [x] Add Downloads
 - [ ] Add Save to the backoffice
 - [ ] Add Sharpness slider
-- [ ] Add Tempeture
+- [ ] Add Temperature slider
 
 See the [open issues](https://github.com/dhedgepeth/uMediaEditor/issues) for a full list of proposed features (and known issues).
 
