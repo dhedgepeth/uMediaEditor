@@ -8,25 +8,26 @@
   <p align="center">
     Expand the Umbraco Media tab with edits!
     <br />
-    <a href="https://github.com/dhedgepeth/uMediaEditor"><strong>Explore the docs �</strong></a>
+    <a href="https://github.com/dhedgepeth/uMediaEditor"><strong>Explore the docs</strong></a>
     <br />
     <br />
     <a href="https://github.com/dhedgepeth/uMediaEditor/issues">Report Bug</a>
-    �
+    •
     <a href="https://github.com/dhedgepeth/uMediaEditor/issues">Request Feature</a>
   </p>
 </div>
 
 ## About the Project
+The uMediaEditor package aims to add basic image processing directly to the Umbraco backoffice!
 
-Wanting to get more familiar with development, as well as wanting to become part of the community of Umbraco, we set out to expand the capabilites of the Umbraco backoffice Media tab by implementing some basic editing features.
+Wanting to get more familiar with development, as well as wanting to become part of the Umbraco Community, we set out to expand the capabilites of the Umbraco backoffice Media tab by implementing some basic editing features.
 
 We noticed a few areas where the Media tab could be expaned:
 * Download button to bring photos from the backoffice to a local machine :arrow_down_small:
 * Sliders to adjust photos in the backoffice simliar to the features you can find on a smart phone :pencil2:
-* Save button which allows you to save changes made on an image from the backoffice, as a new image in the backoffice or overwritting the original image :floppy_disk: (Comming soon)
+* Save button which allows you to save changes made on an image from the backoffice, as a new image in the backoffice or overwritting the original image :floppy_disk: (Coming soon)
 
-Of course we still want to bring more functonality as we expand this package so every bit of feed back is appriciated! :grin:
+Of course we still want to bring more functonality as we expand this package so every bit of feedback is appriciated! :grin:
 
 ### Built With
 
@@ -37,7 +38,7 @@ Of course we still want to bring more functonality as we expand this package so 
 
 ### Umbraco cloud 
 
-Installation with Umbraco cloud requires Cloning your project down locally to apply new packages
+When installing this package with Umbraco Cloud, clone your project down locally and then follow instructions as normal.
 
 ### Installation
 
