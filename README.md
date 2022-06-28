@@ -45,7 +45,7 @@ When installing this package with Umbraco Cloud, clone your project down locally
 In the Nuget Package manager console, run the following:
 
 ```sh
-  Install-Package uMediaEditor
+  Install-Package uMediaEditor -Version 1.0.0-beta
   ```
 
 ## Usage
