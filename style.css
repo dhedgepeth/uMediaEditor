@@ -14,7 +14,7 @@
     width: 95%;
     height: 325px;
     border: dashed 1px #D8D7D9;
-    margin: 0 auto;
+    margin: 0 2.5% 0 2.5%;
     margin-bottom: 10px;
     background-color: #FFFFFF;
 }
@@ -35,18 +35,17 @@
 .workSpace {
     display: flex;
     justify-content: space-between;
-    white-space: nowrap;
+    margin: 2.5%;
 }
 
 .mediaCenter {
     display: flex;
-    margin: 0  0 10px 10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 .imagePreview {
     justify-content: left;
-    margin-top: 20px;
-    margin-left: 2.5%;
 }
 
 #canvas {
@@ -55,16 +54,11 @@
     object-fit: contain;
     border: solid 5px #fff;
     border-radius: 10px;
-    margin-left: 5%;
 }
 
-#sliders{
-    margin: 0 2% 0 2%;
-}
 
 
 .AdjustMenu {
-    margin-right: 2.5%;
     margin: 5px;
     height: 33px;
     min-width: 175px;
@@ -169,11 +163,6 @@
         
     }
 
-       /* .slider .value.left {
-            left: -25px;
-            margin: -5px;
-        }*/
-
         .slider .value.right {
             width: 35.25px;
             font-size: 135%
@@ -200,5 +189,5 @@
 }
 
 .buttons {
-    margin-left: 2.5%;
+    margin-left: 1%;
 }
