@@ -15,6 +15,12 @@
             <div class="imagePreview" ng-hide="hideEditors">
                 <canvas id="canvas" height="0"></canvas>
             </div>
+
+            <div class="buttons" ng-hide="hideEditors">
+                <a id="download" class="btn btn-success">Download</a>
+                <button id="reset" class="btn btn-success">Reset</button>
+                <!--<button id="save" class="btn btn-success">Save</button>-->
+            </div>
         </div>
 
         <div id="sliders" ng-hide="hideEditors">
@@ -148,11 +154,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="buttons" ng-hide="hideEditors">
-        <a id="download" class="btn btn-success">Download</a>
-        <button id="reset" class="btn btn-success">Reset</button>
-        <!--<button id="save" class="btn btn-success">Save</button>-->
     </div>
 </div>
