@@ -1,30 +1,33 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-
+    <a href="https://github.com/dhedgepeth/uMediaEditor">
+    <img src="assets/images/uME-icon.png" alt="Logo" width="90" height="90">
+  </a>
   <h3 align="center">uMediaEditor</h3>
 
   <p align="center">
     Expand the Umbraco Media tab with edits!
     <br />
-    <a href="https://github.com/dhedgepeth/uMediaEditor"><strong>Explore the docs �</strong></a>
+    <a href="https://github.com/dhedgepeth/uMediaEditor"><strong>Explore the docs</strong></a>
     <br />
     <br />
     <a href="https://github.com/dhedgepeth/uMediaEditor/issues">Report Bug</a>
-    �
+    •
     <a href="https://github.com/dhedgepeth/uMediaEditor/issues">Request Feature</a>
   </p>
 </div>
 
 ## About the Project
+The uMediaEditor package aims to add basic image processing directly to the Umbraco backoffice!
 
-Wanting to get more familiar with development, as well as wanting to become part of the community of Umbraco, we set out to expand the capabilites of the Umbraco backoffice Media tab by implementing some basic editing features.
+Wanting to get more familiar with development, as well as wanting to become part of the Umbraco Community, we set out to expand the capabilites of the Umbraco backoffice Media tab by implementing some basic editing features.
 
 We noticed a few areas where the Media tab could be expaned:
 * Download button to bring photos from the backoffice to a local machine :arrow_down_small:
 * Sliders to adjust photos in the backoffice simliar to the features you can find on a smart phone :pencil2:
-* Save button which allows you to save changes made on an image from the backoffice, as a new image in the backoffice or overwritting the original image :floppy_disk: (Comming soon)
+* Save button which allows you to save changes made on an image from the backoffice, as a new image in the backoffice or overwritting the original image :floppy_disk: (Coming soon)
 
-Of course we still want to bring more functonality as we expand this package so every bit of feed back is appriciated! :grin:
+Of course we still want to bring more functonality as we expand this package so every bit of feedback is appriciated! :grin:
 
 ### Built With
 
@@ -35,14 +38,14 @@ Of course we still want to bring more functonality as we expand this package so 
 
 ### Umbraco cloud 
 
-Installation with Umbraco cloud requires Cloning your project down locally to apply new packages
+When installing this package with Umbraco Cloud, clone your project down locally and then follow instructions as normal.
 
 ### Installation
 
 In the Nuget Package manager console, run the following:
 
 ```sh
-  Install-Package uMediaEditor
+  Install-Package uMediaEditor -Version 1.0.0-beta
   ```
 
 ## Usage
@@ -61,7 +64,7 @@ Once you enter the uME Dashboard, use the drop down of the tree view to select y
 - [x] Add Downloads
 - [ ] Add Save to the backoffice
 - [ ] Add Sharpness slider
-- [ ] Add Tempeture
+- [ ] Add Temperature slider
 
 See the [open issues](https://github.com/dhedgepeth/uMediaEditor/issues) for a full list of proposed features (and known issues).
 
@@ -83,9 +86,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (`git checkout -b feature/UmbazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some UmbazingFeature'`)
+4. Push to the Branch (`git push origin feature/UmbazingFeature`)
 5. Open a Pull Request
 
 

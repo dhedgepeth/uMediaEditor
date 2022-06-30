@@ -11,8 +11,8 @@
     }
   ],
   "javascript": [
-    "/App_Plugins/uMediaEditor/umediadash.controller.js",
-    "/App_Plugins/uMediaEditor/script.js"
+    "/App_Plugins/uMediaEditor/js/umediadash.controller.js",
+    "/App_Plugins/uMediaEditor/js/script.js"
   ],
   "css": [
     "/App_Plugins/uMediaEditor/style.css"
