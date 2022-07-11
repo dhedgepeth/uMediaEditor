@@ -27,6 +27,8 @@ We noticed a few areas where the Media tab could be expaned:
 * Sliders to adjust photos in the backoffice simliar to the features you can find on a smart phone :pencil2:
 * Save button which allows you to save changes made on an image from the backoffice, as a new image in the backoffice or overwritting the original image :floppy_disk: (Coming soon)
 
+![](assets/images/Hue-demo.gif)
+
 Of course we still want to bring more functonality as we expand this package so every bit of feedback is appriciated! :grin:
 
 ### Built With
