@@ -1,4 +1,4 @@
-﻿angular.module("umbraco").controller("UMediaDashController", function ($scope, mediaResource) {
+﻿angular.module("umbraco").controller("UMediaDashController", function ($scope, $http, mediaResource) {
     let link = '';
     var vm = this;
 
@@ -16,27 +16,13 @@
             if (!isNaN(stringArr[stringArr.length - 1])) { //check that the link passed is a number before attempting to find by id
                 mediaResource.getById(stringArr[stringArr.length - 1]).then(function (media) {
                     jquery.getLink(media.mediaLink, media.name + '-edit.png'); //function call to global jquery function to pass link and name of media item
-                    console.log(media)
                     $scope.hideEditors = false;
+                    jquery.fileName = media.name + '-edit';
+                    jquery.canvasName = media.name;
                 });
             }
         }
         $('#dropArea').val(''); //reset the input to default value
-    });
-
-    $('#save').click(function () {
-        mediaResource.getScaffold(-1, 'Image').then(function (scaffold) {
-            let img = scaffold;
-
-            img.name = 'testing';
-            img.mediaLink = link;
-
-            console.log(img)
-
-           /* mediaResource.save(img, true, []).then(function () {
-                console.log('saved');
-            }) */
-        });
     });
 
     /* show and hide sliders & toggle animations*/
@@ -54,5 +40,4 @@
         $scope.hideLightSliders = !$scope.hideLightSliders;
         $('#lightToggle').toggleClass('no-rotated-image rotated-image');
     }
-
 });

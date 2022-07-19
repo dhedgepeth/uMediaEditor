@@ -3,11 +3,11 @@ var jquery = {
     getLink: function (link, name) { //takes the media link and media name as parameters
         $('#sourceImage').attr('src', link); //sets the source of the image to media link
         $('#download').attr('download', name); //sets the downloaded file's name to the media item's name
-    }
+    },
+    canvasName: ''
 };
 
 $(document).ready(function () {
-  /*  const sharp = require('sharp')*/;
 
     getSliders();
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
     let context = canvas.getContext('2d');
 
     $('input[type="range"]').mouseleave(function () {
-        $('#download').attr('href', canvas.toDataURL("image/png")); //updates the link to the canvas image each time the mouse leaves a slider
+        $('#download').attr('href', canvas.toDataURL("image/png", 1.0)); //updates the link to the canvas image each time the mouse leaves a slider
     });
 
     $('#sourceImage').on('load', function () {
@@ -42,83 +42,40 @@ $(document).ready(function () {
         context.drawImage(document.getElementById('sourceImage'), 0, 0);
     }
 
-    /*function applySharp() {
-        sharp(document.getElementById('sourceImage')).sharpen();
-    }*/
-
     /* Sets jquery listeners on all sliders and updates the displayed values */
     function getSliders() { 
         //-------------------------------Color Adust Script----------------------------//
         $('#hueRange').on('input', function () {
             $('#hueValue').text($('#hueRange').val());
             apply();
-        })
-
-        $('#tintRange').on('input', function () {
-            $('#tintValue').text($('#tintRange').val());
-        })
-
-        $('#tempRange').on('input', function () {
-            $('#tempValue').text($('#tempRange').val());
-        })
+        });
 
         $('#satRange').on('input', function () {
             $('#satValue').text($('#satRange').val());
             apply();
-        })
-
-        $('#vibRange').on('input', function () {
-            $('#vibValue').text($('#vibRange').val());
-        })
-
+        });
 
         //------------------------------------Detail Adjust Script-------------------------------//
         $('#sharpRange').on('input', function () {
             $('#sharpValue').text($('#sharpRange').val());
             apply();
-        })
+        });
 
         $('#blurRange').on('input', function () {
             $('#blurValue').text($('#blurRange').val());
             apply();
-        })
-
-        $('#smoothRange').on('input', function () {
-            $('#smoothValue').text($('#smoothRange').val());
-        })
-
+        });
 
         //-------------------------------------Light Adjust Script------------------------------//
         $('#brightRange').on('input', function () {
             $('#brightValue').text($('#brightRange').val());
             apply();
-        })
-
-
-        $('#shadowRange').on('input', function () {
-            $('#shadowValue').text($('#shadowRange').val());
-        })
+        });
 
         $('#contrastRange').on('input', function () {
             $('#contrastValue').text($('#contrastRange').val());
             apply();
-        })
-
-        $('#exposureRange').on('input', function () {
-            $('#exposureValue').text($('#exposureRange').val());
-        })
-
-        $('#blackRange').on('input', function () {
-            $('#blackValue').text($('#blackRange').val());
-        })
-
-        $('#whiteRange').on('input', function () {
-            $('#whiteValue').text($('#whiteRange').val());
-        })
-
-        $('#highlightsRange').on('input', function () {
-            $('#highlightsValue').text($('#highlightsRange').val());
-        })
+        });
     }
 
     /* Resets all sliders to their default values */
@@ -140,6 +97,14 @@ $(document).ready(function () {
 
         apply();
     }
-});
 
-//just making sure this works
+    $('#save').click(function () {
+        let pic = canvas.toDataURL('image/png');
+        pic += 'imageName: ' + jquery.canvasName + '-edit';
+        $.ajax({
+            method: 'POST',
+            url: '/umbraco/uMediaEditor/UMediaEditor/handlesave',
+            data: pic
+        });
+    });
+});
