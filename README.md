@@ -65,6 +65,7 @@ Once you enter the uME Dashboard, use the drop down of the tree view to select y
 
 - [x] Add Downloads
 - [x] Save edited images to the backoffice
+- [ ] Allow file uploads directly
 - [ ] Add Sharpness slider
 - [ ] Add Temperature slider
 
