@@ -105,6 +105,8 @@ $(document).ready(function () {
             method: 'POST',
             url: '/umbraco/uMediaEditor/UMediaEditor/handlesave',
             data: pic
+        }).done(function () {
+            console.log('done');
         });
     });
 });

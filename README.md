@@ -64,7 +64,7 @@ Once you enter the uME Dashboard, use the drop down of the tree view to select y
 ## Roadmap
 
 - [x] Add Downloads
-- [ ] Add Save to the backoffice
+- [x] Add Save to the backoffice
 - [ ] Add Sharpness slider
 - [ ] Add Temperature slider
 
@@ -101,5 +101,11 @@ Don't forget to give the project a star! Thanks again!
 * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
 * [Malven's Grid Cheatsheet](https://grid.malven.co/)
 * [React Icons](https://react-icons.github.io/react-icons/search)
+
+## Known Issues
+
+There are a few known issues that we are currently working on providing fixes for:
+* After saving an image to the backoffice and navigating away, you might be prompted that changes have not been saved.
+* After saving an image to the backoffice, the media gallery must be manually refreshed before you can view the image.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
