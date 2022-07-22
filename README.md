@@ -64,7 +64,7 @@ Once you enter the uME Dashboard, use the drop down of the tree view to select y
 ## Roadmap
 
 - [x] Add Downloads
-- [x] Add Save to the backoffice
+- [x] Save edited images to the backoffice
 - [ ] Add Sharpness slider
 - [ ] Add Temperature slider
 
