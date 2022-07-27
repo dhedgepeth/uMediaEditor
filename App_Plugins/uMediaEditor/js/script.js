@@ -105,13 +105,14 @@ $(document).ready(function () {
             method: 'POST',
             url: '/umbraco/uMediaEditor/UMediaEditor/handlesave',
             data: {
-                Picture: pic, 
+                Picture: pic,
                 Name: jquery.canvasName,
                 OverWriteImg: $('#newImageCheck').is(':checked'),
                 ImageId: jquery.imageId
+            },
+            success: function () {
+                
             }
-        }).done(function () {
-            console.log('done');
         });
     });
 });
