@@ -4,7 +4,8 @@ var jquery = {
         $('#sourceImage').attr('src', link); //sets the source of the image to media link
         $('#download').attr('download', name); //sets the downloaded file's name to the media item's name
     },
-    canvasName: ''
+    canvasName: '',
+    imageId: ''
 };
 
 $(document).ready(function () {
@@ -100,11 +101,15 @@ $(document).ready(function () {
 
     $('#save').click(function () {
         let pic = canvas.toDataURL('image/png');
-        pic += 'imageName: ' + jquery.canvasName + '-edit';
         $.ajax({
             method: 'POST',
             url: '/umbraco/uMediaEditor/UMediaEditor/handlesave',
-            data: pic
+            data: {
+                Picture: pic, 
+                Name: jquery.canvasName,
+                OverWriteImg: $('#newImageCheck').is(':checked'),
+                ImageId: jquery.imageId
+            }
         }).done(function () {
             console.log('done');
         });

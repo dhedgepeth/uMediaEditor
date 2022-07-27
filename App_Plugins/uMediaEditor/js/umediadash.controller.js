@@ -19,6 +19,7 @@
                     $scope.hideEditors = false;
                     jquery.fileName = media.name + '-edit';
                     jquery.canvasName = media.name;
+                    jquery.imageId = stringArr[stringArr.length - 1];
                 });
             }
         }

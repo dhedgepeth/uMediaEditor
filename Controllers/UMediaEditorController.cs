@@ -33,29 +33,30 @@ namespace UMediaEditor.Controllers
         }
 
         [HttpPost]
-        public void HandleSave()
+        public void HandleSave(string Picture, string Name, bool OverWriteImg, int ImageId)
         {
             Request.Method = "POST";
-            string Body = ""; //holds body of post request
-            using (var reader = new StreamReader(Request.Body))
-            {
-                var postBody = reader.ReadToEnd();
-                Body = postBody;
-            }
+            Picture = Picture.Replace("data:image/png;base64,", ""); //remove image header
+            Picture = Picture.Replace(" ", "");
 
-            string[] arr = Body.Split("imageName:"); //split post request body into array [0] holds image data [1] holds image name
+            Console.WriteLine("Image ID: " + ImageId);
 
-            arr[0] = arr[0].Replace("data:image/png;base64,", ""); //remove image header
-            arr[0] = arr[0].Replace(" ", "");
-
-            byte[] bytes = Convert.FromBase64String(arr[0]);
+            byte[] bytes = Convert.FromBase64String(Picture);
 
             using (MemoryStream stream = new MemoryStream(bytes))
             {
-                // Initialize a new image at the root of the media archive
-                IMedia media = _mediaService.CreateMedia(arr[1], -1, Constants.Conventions.MediaTypes.Image);
+                IMedia media;
+                if (OverWriteImg)
+                {
+                    media = _mediaService.GetById(ImageId);
+                }
+                else
+                {
+                    // Initialize a new image at the root of the media archive
+                    media = _mediaService.CreateMedia(Name + "-edit", -1, Constants.Conventions.MediaTypes.Image);
+                }
                 // Set the property value (Umbraco will handle the underlying magic)
-                media.SetValue(_mediaFileManager, _mediaUrlGeneratorCollection, _shortStringHelper, _contentTypeBaseServiceProvider, Constants.Conventions.Media.File, arr[1] + ".png", stream);
+                media.SetValue(_mediaFileManager, _mediaUrlGeneratorCollection, _shortStringHelper, _contentTypeBaseServiceProvider, Constants.Conventions.Media.File, Name + "-edit.png", stream);
                 // Save the media
                 _mediaService.Save(media);
             }
