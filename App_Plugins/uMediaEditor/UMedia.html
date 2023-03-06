@@ -19,7 +19,7 @@
             <div class="buttons" ng-hide="hideEditors">
                 <a id="download" class="btn btn-success">Download</a>
                 <button id="reset" class="btn btn-success">Reset</button>
-                <button id="save" class="btn btn-success">Save</button>
+                <button (click)="saveAlert()" id="save" class="btn btn-success">Save</button>
                 <input type="checkbox" id="newImageCheck" />
                 <label for="newImageCheck">Overwrite Image</label>
             </div>
@@ -84,4 +84,6 @@
             </div>
         </div>
     </div>
+    
+
 </div>

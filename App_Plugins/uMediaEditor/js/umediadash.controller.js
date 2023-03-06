@@ -1,4 +1,6 @@
-﻿angular.module("umbraco").controller("UMediaDashController", function ($scope, $http, mediaResource) {
+﻿
+angular.module("umbraco").controller("UMediaDashController", function ($scope, $http, mediaResource) {
+    //const { default: Swal } = require("sweetalert2");
     let link = '';
     var vm = this;
 
@@ -8,6 +10,7 @@
     $scope.hideDetailSliders = true;
     $scope.hideLightSliders = true;
     $scope.hideEditors = true;
+    $scope.hideSave = true;
 
     $('#dropArea').on('input', function () {
         if ($('#dropArea').val().length > 1) { //checks that the input is a valid length before handling as an image link
@@ -41,4 +44,10 @@
         $scope.hideLightSliders = !$scope.hideLightSliders;
         $('#lightToggle').toggleClass('no-rotated-image rotated-image');
     }
+
+    /*save function*/
+
+   /* saveAlert() {
+        Swal.fire("Saved!");
+    }*/
 });

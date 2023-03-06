@@ -191,3 +191,23 @@
 .buttons {
     margin-left: 1%;
 }
+
+#savePop{
+
+}
+
+.popUp {
+    height: 150px;
+    width: 150px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 4px 8px 16px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .popUp p {
+        font-size: 18px;
+        color: #3544B1;
+        font-weight: 600;
+    }

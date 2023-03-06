@@ -111,7 +111,7 @@ $(document).ready(function () {
                 ImageId: jquery.imageId
             },
             success: function () {
-                
+                alert("Save Complete!");
             }
         });
     });
