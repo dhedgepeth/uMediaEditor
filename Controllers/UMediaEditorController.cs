@@ -11,6 +11,8 @@ using Umbraco.Cms.Core.Strings;
 using Umbraco.Cms.Web.Common.Attributes;
 using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Extensions;
+using Umbraco.Cms.Core.Notifications;
+using Umbraco.Cms.Core.Events;
 
 namespace UMediaEditor.Controllers
 {
@@ -19,17 +21,27 @@ namespace UMediaEditor.Controllers
     {
         private IMediaService _mediaService;
         private MediaFileManager _mediaFileManager;
+        private readonly IEventAggregator _eventAggregator;
+
         IShortStringHelper _shortStringHelper;
         IContentTypeBaseServiceProvider _contentTypeBaseServiceProvider;
         MediaUrlGeneratorCollection _mediaUrlGeneratorCollection;
 
-        public UMediaEditorController(IMediaService mediaService, MediaUrlGeneratorCollection mediaUrlGeneratorCollection, MediaFileManager mediaFileManager, IShortStringHelper shortStringHelper, IContentTypeBaseServiceProvider contentTypeBaseServiceProvider)
+        public UMediaEditorController(
+            IMediaService mediaService,
+            MediaUrlGeneratorCollection mediaUrlGeneratorCollection,
+            MediaFileManager mediaFileManager,
+            IShortStringHelper shortStringHelper,
+            IContentTypeBaseServiceProvider contentTypeBaseServiceProvider,
+            IEventAggregator eventAggregator
+            )
         {
             _mediaService = mediaService;
             _mediaUrlGeneratorCollection = mediaUrlGeneratorCollection;
             _mediaFileManager = mediaFileManager;
             _shortStringHelper = shortStringHelper;
             _contentTypeBaseServiceProvider = contentTypeBaseServiceProvider;
+            _eventAggregator = eventAggregator;
         }
 
         [HttpPost]
@@ -55,11 +67,20 @@ namespace UMediaEditor.Controllers
                     // Initialize a new image at the root of the media archive
                     media = _mediaService.CreateMedia(Name + "-edit", -1, Constants.Conventions.MediaTypes.Image);
                 }
+                //ready notification
+                EventMessage msg = new EventMessage(Name, " - saved", EventMessageType.Success);
+                EventMessages msgs = new EventMessages();
+                msgs.Add(msg);
+
                 // Set the property value (Umbraco will handle the underlying magic)
-                media.SetValue(_mediaFileManager, _mediaUrlGeneratorCollection, _shortStringHelper, _contentTypeBaseServiceProvider, Constants.Conventions.Media.File, Name + "-edit.png", stream);
+                media.SetValue(_mediaFileManager, _mediaUrlGeneratorCollection,
+                 _shortStringHelper, _contentTypeBaseServiceProvider, Constants.Conventions.Media.File, Name + "-edit.png", stream);
                 // Save the media
+                _eventAggregator.Publish(new MediaSavedNotification(media,msgs));
+
                 _mediaService.Save(media);
             }
         }
+
     }
 }
