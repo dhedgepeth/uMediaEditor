@@ -21,8 +21,6 @@ namespace UMediaEditor.Controllers
     {
         private IMediaService _mediaService;
         private MediaFileManager _mediaFileManager;
-        private readonly IEventAggregator _eventAggregator;
-
         IShortStringHelper _shortStringHelper;
         IContentTypeBaseServiceProvider _contentTypeBaseServiceProvider;
         MediaUrlGeneratorCollection _mediaUrlGeneratorCollection;
@@ -32,8 +30,7 @@ namespace UMediaEditor.Controllers
             MediaUrlGeneratorCollection mediaUrlGeneratorCollection,
             MediaFileManager mediaFileManager,
             IShortStringHelper shortStringHelper,
-            IContentTypeBaseServiceProvider contentTypeBaseServiceProvider,
-            IEventAggregator eventAggregator
+            IContentTypeBaseServiceProvider contentTypeBaseServiceProvider
             )
         {
             _mediaService = mediaService;
@@ -41,7 +38,6 @@ namespace UMediaEditor.Controllers
             _mediaFileManager = mediaFileManager;
             _shortStringHelper = shortStringHelper;
             _contentTypeBaseServiceProvider = contentTypeBaseServiceProvider;
-            _eventAggregator = eventAggregator;
         }
 
         [HttpPost]
@@ -67,20 +63,26 @@ namespace UMediaEditor.Controllers
                     // Initialize a new image at the root of the media archive
                     media = _mediaService.CreateMedia(Name + "-edit", -1, Constants.Conventions.MediaTypes.Image);
                 }
-                //ready notification
-                EventMessage msg = new EventMessage(Name, " - saved", EventMessageType.Success);
-                EventMessages msgs = new EventMessages();
-                msgs.Add(msg);
-
                 // Set the property value (Umbraco will handle the underlying magic)
                 media.SetValue(_mediaFileManager, _mediaUrlGeneratorCollection,
                  _shortStringHelper, _contentTypeBaseServiceProvider, Constants.Conventions.Media.File, Name + "-edit.png", stream);
                 // Save the media
-                _eventAggregator.Publish(new MediaSavedNotification(media,msgs));
-
                 _mediaService.Save(media);
             }
         }
 
+    }
+    public class MediaNotificationHandler : INotificationHandler<MediaSavedNotification>
+    {
+        public void Handle(MediaSavedNotification notification)
+        {
+            foreach (var mediaItem in notification.SavedEntities)
+            {
+                if (mediaItem.ContentType.Alias.Equals("Image"))
+                {
+                    notification.Messages.Add(new EventMessage("UMediaEditor", " - Image Saved", EventMessageType.Success));
+                }
+            }
+        }
     }
 }
