@@ -13,6 +13,8 @@ using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Extensions;
 using Umbraco.Cms.Core.Notifications;
 using Umbraco.Cms.Core.Events;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace UMediaEditor.Controllers
 {
@@ -72,17 +74,32 @@ namespace UMediaEditor.Controllers
         }
 
     }
-    public class MediaNotificationHandler : INotificationHandler<MediaSavedNotification>
+    public class MediaNotificationHandler : INotificationAsyncHandler<MediaSavedNotification>
     {
-        public void Handle(MediaSavedNotification notification)
+        // public void Handle(MediaSavedNotification notification)
+        // {
+        //     foreach (var mediaItem in notification.SavedEntities)
+        //     {
+        //         if (mediaItem.ContentType.Alias.Equals("Image"))
+        //         {
+        //             notification.Messages.Add(new EventMessage("UMediaEditor", " - Image Saved", EventMessageType.Success));
+                    
+        //         }
+        //     }
+        // }
+
+        public Task HandleAsync(MediaSavedNotification notification, CancellationToken cancellationToken)
         {
             foreach (var mediaItem in notification.SavedEntities)
             {
                 if (mediaItem.ContentType.Alias.Equals("Image"))
                 {
+                    cancellationToken = new CancellationToken(false);
                     notification.Messages.Add(new EventMessage("UMediaEditor", " - Image Saved", EventMessageType.Success));
+                    
                 }
             }
+            return Task.CompletedTask;
         }
     }
 }
