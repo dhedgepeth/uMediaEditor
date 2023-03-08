@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using Umbraco.Cms.Core;
@@ -13,8 +12,7 @@ using Umbraco.Cms.Web.Common.Controllers;
 using Umbraco.Extensions;
 using Umbraco.Cms.Core.Notifications;
 using Umbraco.Cms.Core.Events;
-using System.Threading.Tasks;
-using System.Threading;
+using Umbraco.Cms.Core.Scoping;
 
 namespace UMediaEditor.Controllers
 {
@@ -23,6 +21,8 @@ namespace UMediaEditor.Controllers
     {
         private IMediaService _mediaService;
         private MediaFileManager _mediaFileManager;
+        private IEventAggregator _eventAggregator;
+        private readonly IScopeProvider _scopeProvider;
         IShortStringHelper _shortStringHelper;
         IContentTypeBaseServiceProvider _contentTypeBaseServiceProvider;
         MediaUrlGeneratorCollection _mediaUrlGeneratorCollection;
@@ -32,7 +32,9 @@ namespace UMediaEditor.Controllers
             MediaUrlGeneratorCollection mediaUrlGeneratorCollection,
             MediaFileManager mediaFileManager,
             IShortStringHelper shortStringHelper,
-            IContentTypeBaseServiceProvider contentTypeBaseServiceProvider
+            IContentTypeBaseServiceProvider contentTypeBaseServiceProvider,
+            IScopeProvider scopeProvider,
+            IEventAggregator eventAggregator
             )
         {
             _mediaService = mediaService;
@@ -40,6 +42,8 @@ namespace UMediaEditor.Controllers
             _mediaFileManager = mediaFileManager;
             _shortStringHelper = shortStringHelper;
             _contentTypeBaseServiceProvider = contentTypeBaseServiceProvider;
+            _eventAggregator = eventAggregator;
+            _scopeProvider = scopeProvider;
         }
 
         [HttpPost]
@@ -52,6 +56,8 @@ namespace UMediaEditor.Controllers
             Console.WriteLine("Image ID: " + ImageId);
 
             byte[] bytes = Convert.FromBase64String(Picture);
+
+             using IScope scope = _scopeProvider.CreateScope();
 
             using (MemoryStream stream = new MemoryStream(bytes))
             {
@@ -70,36 +76,37 @@ namespace UMediaEditor.Controllers
                  _shortStringHelper, _contentTypeBaseServiceProvider, Constants.Conventions.Media.File, Name + "-edit.png", stream);
                 // Save the media
                 _mediaService.Save(media);
+                scope.Notifications.Publish(new MediaSavedNotification(media, new EventMessages()));
             }
         }
 
     }
-    public class MediaNotificationHandler : INotificationAsyncHandler<MediaSavedNotification>
-    {
-        // public void Handle(MediaSavedNotification notification)
-        // {
-        //     foreach (var mediaItem in notification.SavedEntities)
-        //     {
-        //         if (mediaItem.ContentType.Alias.Equals("Image"))
-        //         {
-        //             notification.Messages.Add(new EventMessage("UMediaEditor", " - Image Saved", EventMessageType.Success));
+    // public class MediaNotificationHandler : INotificationHandler<MediaSavedNotification>
+    // {
+    //     public void Handle(MediaSavedNotification notification)
+    //     {
+    //         foreach (var mediaItem in notification.SavedEntities)
+    //         {
+    //             if (mediaItem.ContentType.Alias.Equals("Image"))
+    //             {
+    //                 notification.Messages.Add(new EventMessage("UMediaEditor", " - Image Saved", EventMessageType.Success));
                     
-        //         }
-        //     }
-        // }
+    //             }
+    //         }
+    //     }
 
-        public Task HandleAsync(MediaSavedNotification notification, CancellationToken cancellationToken)
-        {
-            foreach (var mediaItem in notification.SavedEntities)
-            {
-                if (mediaItem.ContentType.Alias.Equals("Image"))
-                {
-                    cancellationToken = new CancellationToken(false);
-                    notification.Messages.Add(new EventMessage("UMediaEditor", " - Image Saved", EventMessageType.Success));
+    //     // public Task HandleAsync(MediaSavedNotification notification, CancellationToken cancellationToken)
+    //     // {
+    //     //     foreach (var mediaItem in notification.SavedEntities)
+    //     //     {
+    //     //         if (mediaItem.ContentType.Alias.Equals("Image"))
+    //     //         {
+    //     //             cancellationToken = new CancellationToken(false);
+    //     //             notification.Messages.Add(new EventMessage("UMediaEditor", " - Image Saved", EventMessageType.Success));
                     
-                }
-            }
-            return Task.CompletedTask;
-        }
-    }
+    //     //         }
+    //     //     }
+    //     //     return Task.CompletedTask;
+    //     // }
+    // }
 }
