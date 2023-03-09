@@ -109,7 +109,6 @@
 }
 
 .SliderContainer input {
-  -webkit-appearance: none;
   width: 70%;
   height: 3px;
   background: #ddd;
@@ -133,7 +132,6 @@
 }
 
 .SliderContainer input::-moz-range-thumb {
-  -webkit-appearance: none;
   width: 20px;
   height: 20px;
   background: red;
